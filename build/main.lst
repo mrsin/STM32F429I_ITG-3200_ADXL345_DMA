@@ -1,0 +1,808 @@
+ARM GAS  /tmp/ccjRLM5G.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.fpu fpv4-sp-d16
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 6
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.thumb
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	UartHandle,64,4
+  20              		.global	UartReady
+  21              		.section	.bss.UartReady,"aw",%nobits
+  24              	UartReady:
+  25 0000 00       		.space	1
+  26              		.comm	aTxBuffer,255,4
+  27              		.comm	aRxBuffer,254,4
+  28              		.section	.text.main,"ax",%progbits
+  29              		.align	2
+  30              		.global	main
+  31              		.thumb
+  32              		.thumb_func
+  34              	main:
+  35              	.LFB125:
+  36              		.file 1 "Src/main.c"
+   1:Src/main.c    **** /**
+   2:Src/main.c    ****   ******************************************************************************
+   3:Src/main.c    ****   * @file    I2C/I2C_TwoBoards_ComDMA/Src/main.c
+   4:Src/main.c    ****   * @author  MCD Application Team
+   5:Src/main.c    ****   * @version V1.2.3
+   6:Src/main.c    ****   * @date    09-October-2015 
+   7:Src/main.c    ****   * @brief   This sample code shows how to use STM32F4xx I2C HAL API to transmit
+   8:Src/main.c    ****   *          and receive a data buffer with a communication process based on
+   9:Src/main.c    ****   *          DMA transfer. 
+  10:Src/main.c    ****   *          The communication is done using 2 Boards.
+  11:Src/main.c    ****   ******************************************************************************
+  12:Src/main.c    ****   * @attention
+  13:Src/main.c    ****   *
+  14:Src/main.c    ****   * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  15:Src/main.c    ****   *
+  16:Src/main.c    ****   * Redistribution and use in source and binary forms, with or without modification,
+  17:Src/main.c    ****   * are permitted provided that the following conditions are met:
+  18:Src/main.c    ****   *   1. Redistributions of source code must retain the above copyright notice,
+  19:Src/main.c    ****   *      this list of conditions and the following disclaimer.
+  20:Src/main.c    ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
+  21:Src/main.c    ****   *      this list of conditions and the following disclaimer in the documentation
+  22:Src/main.c    ****   *      and/or other materials provided with the distribution.
+  23:Src/main.c    ****   *   3. Neither the name of STMicroelectronics nor the names of its contributors
+  24:Src/main.c    ****   *      may be used to endorse or promote products derived from this software
+ARM GAS  /tmp/ccjRLM5G.s 			page 2
+
+
+  25:Src/main.c    ****   *      without specific prior written permission.
+  26:Src/main.c    ****   *
+  27:Src/main.c    ****   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  28:Src/main.c    ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  29:Src/main.c    ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  30:Src/main.c    ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  31:Src/main.c    ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  32:Src/main.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  33:Src/main.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  34:Src/main.c    ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  35:Src/main.c    ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  36:Src/main.c    ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  37:Src/main.c    ****   *
+  38:Src/main.c    ****   ******************************************************************************
+  39:Src/main.c    ****   */
+  40:Src/main.c    **** 
+  41:Src/main.c    **** /* Includes ------------------------------------------------------------------*/
+  42:Src/main.c    **** #include "main.h"
+  43:Src/main.c    **** 
+  44:Src/main.c    **** /** @addtogroup STM32F4xx_HAL_Examples
+  45:Src/main.c    ****   * @{
+  46:Src/main.c    ****   */
+  47:Src/main.c    **** 
+  48:Src/main.c    **** /** @addtogroup I2C_TwoBoards_ComDMA
+  49:Src/main.c    ****   * @{
+  50:Src/main.c    ****   */ 
+  51:Src/main.c    **** 
+  52:Src/main.c    **** /* Private typedef -----------------------------------------------------------*/
+  53:Src/main.c    **** /* Private define ------------------------------------------------------------*/
+  54:Src/main.c    **** /* Private macro -------------------------------------------------------------*/
+  55:Src/main.c    **** /* Uncomment this line to use the board as master, if not it is used as slave */
+  56:Src/main.c    **** #define I2C_ADDRESS        0x30F
+  57:Src/main.c    **** 
+  58:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  59:Src/main.c    **** /* I2C handler declaration */
+  60:Src/main.c    **** extern I2C_HandleTypeDef I2cHandle;
+  61:Src/main.c    **** 
+  62:Src/main.c    **** /* UART handler declaration */
+  63:Src/main.c    **** UART_HandleTypeDef UartHandle;
+  64:Src/main.c    **** __IO ITStatus UartReady = RESET;
+  65:Src/main.c    **** 
+  66:Src/main.c    **** /* Buffer used for transmission */
+  67:Src/main.c    **** uint8_t aTxBuffer[255];
+  68:Src/main.c    **** 
+  69:Src/main.c    **** /* Buffer used for reception */
+  70:Src/main.c    **** uint8_t aRxBuffer[RXBUFFERSIZE];
+  71:Src/main.c    **** 
+  72:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  73:Src/main.c    **** static void SystemClock_Config(void);
+  74:Src/main.c    **** static void Error_Handler(void);
+  75:Src/main.c    **** 
+  76:Src/main.c    **** /* Private functions ---------------------------------------------------------*/
+  77:Src/main.c    **** 
+  78:Src/main.c    **** /**
+  79:Src/main.c    ****   * @brief  Main program
+  80:Src/main.c    ****   * @param  None
+  81:Src/main.c    ****   * @retval None
+ARM GAS  /tmp/ccjRLM5G.s 			page 3
+
+
+  82:Src/main.c    ****   */
+  83:Src/main.c    **** int main(void)
+  84:Src/main.c    **** {
+  37              		.loc 1 84 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              	.LCFI0:
+  43              		.cfi_def_cfa_offset 8
+  44              		.cfi_offset 7, -8
+  45              		.cfi_offset 14, -4
+  46 0002 00AF     		add	r7, sp, #0
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_register 7
+  85:Src/main.c    ****   /* STM32F4xx HAL library initialization:
+  86:Src/main.c    ****        - Configure the Flash prefetch, instruction and Data caches
+  87:Src/main.c    ****        - Configure the Systick to generate an interrupt each 1 msec
+  88:Src/main.c    ****        - Set NVIC Group Priority to 4
+  89:Src/main.c    ****        - Global MSP (MCU Support Package) initialization
+  90:Src/main.c    ****      */
+  91:Src/main.c    ****   HAL_Init();
+  49              		.loc 1 91 0
+  50 0004 FFF7FEFF 		bl	HAL_Init
+  92:Src/main.c    **** 
+  93:Src/main.c    ****   /* Configure LED3 and LED4 */
+  94:Src/main.c    ****   BSP_LED_Init(LED3);
+  51              		.loc 1 94 0
+  52 0008 0020     		movs	r0, #0
+  53 000a FFF7FEFF 		bl	BSP_LED_Init
+  95:Src/main.c    ****   BSP_LED_Init(LED4);
+  54              		.loc 1 95 0
+  55 000e 0120     		movs	r0, #1
+  56 0010 FFF7FEFF 		bl	BSP_LED_Init
+  96:Src/main.c    ****   
+  97:Src/main.c    ****   /* Configure the system clock to 168 MHz */
+  98:Src/main.c    ****   SystemClock_Config();
+  57              		.loc 1 98 0
+  58 0014 FFF7FEFF 		bl	SystemClock_Config
+  99:Src/main.c    **** 
+ 100:Src/main.c    ****   /*##-1- Configure the I2C peripheral #######################################*/
+ 101:Src/main.c    ****   I2cHandle.Instance             = I2Cx;
+  59              		.loc 1 101 0
+  60 0018 2F4B     		ldr	r3, .L10
+  61 001a 304A     		ldr	r2, .L10+4
+  62 001c 1A60     		str	r2, [r3]
+ 102:Src/main.c    **** 
+ 103:Src/main.c    ****   I2cHandle.Init.AddressingMode  = I2C_ADDRESSINGMODE_10BIT;
+  63              		.loc 1 103 0
+  64 001e 2E4B     		ldr	r3, .L10
+  65 0020 4FF44042 		mov	r2, #49152
+  66 0024 1A61     		str	r2, [r3, #16]
+ 104:Src/main.c    ****   I2cHandle.Init.ClockSpeed      = 400000;
+  67              		.loc 1 104 0
+  68 0026 2C4B     		ldr	r3, .L10
+  69 0028 2D4A     		ldr	r2, .L10+8
+  70 002a 5A60     		str	r2, [r3, #4]
+ARM GAS  /tmp/ccjRLM5G.s 			page 4
+
+
+ 105:Src/main.c    ****   I2cHandle.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  71              		.loc 1 105 0
+  72 002c 2A4B     		ldr	r3, .L10
+  73 002e 0022     		movs	r2, #0
+  74 0030 5A61     		str	r2, [r3, #20]
+ 106:Src/main.c    ****   I2cHandle.Init.DutyCycle       = I2C_DUTYCYCLE_16_9;
+  75              		.loc 1 106 0
+  76 0032 294B     		ldr	r3, .L10
+  77 0034 4FF48042 		mov	r2, #16384
+  78 0038 9A60     		str	r2, [r3, #8]
+ 107:Src/main.c    ****   I2cHandle.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  79              		.loc 1 107 0
+  80 003a 274B     		ldr	r3, .L10
+  81 003c 0022     		movs	r2, #0
+  82 003e DA61     		str	r2, [r3, #28]
+ 108:Src/main.c    ****   I2cHandle.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;
+  83              		.loc 1 108 0
+  84 0040 254B     		ldr	r3, .L10
+  85 0042 0022     		movs	r2, #0
+  86 0044 1A62     		str	r2, [r3, #32]
+ 109:Src/main.c    ****   I2cHandle.Init.OwnAddress1     = I2C_ADDRESS;
+  87              		.loc 1 109 0
+  88 0046 244B     		ldr	r3, .L10
+  89 0048 40F20F32 		movw	r2, #783
+  90 004c DA60     		str	r2, [r3, #12]
+ 110:Src/main.c    ****   I2cHandle.Init.OwnAddress2     = 0xFE;
+  91              		.loc 1 110 0
+  92 004e 224B     		ldr	r3, .L10
+  93 0050 FE22     		movs	r2, #254
+  94 0052 9A61     		str	r2, [r3, #24]
+ 111:Src/main.c    ****   
+ 112:Src/main.c    ****   if(HAL_I2C_Init(&I2cHandle) != HAL_OK)
+  95              		.loc 1 112 0
+  96 0054 2048     		ldr	r0, .L10
+  97 0056 FFF7FEFF 		bl	HAL_I2C_Init
+  98 005a 0346     		mov	r3, r0
+  99 005c 002B     		cmp	r3, #0
+ 100 005e 01D0     		beq	.L2
+ 113:Src/main.c    ****   {
+ 114:Src/main.c    ****     /* Initialization Error */
+ 115:Src/main.c    ****     Error_Handler();
+ 101              		.loc 1 115 0
+ 102 0060 FFF7FEFF 		bl	Error_Handler
+ 103              	.L2:
+ 116:Src/main.c    ****   }
+ 117:Src/main.c    **** 
+ 118:Src/main.c    ****   aTxBuffer[0] = 'A';
+ 104              		.loc 1 118 0
+ 105 0064 1F4B     		ldr	r3, .L10+12
+ 106 0066 4122     		movs	r2, #65
+ 107 0068 1A70     		strb	r2, [r3]
+ 119:Src/main.c    **** 
+ 120:Src/main.c    ****   /* Infinite loop */
+ 121:Src/main.c    ****   while (1)
+ 122:Src/main.c    ****   {
+ 123:Src/main.c    **** 	  /* The board sends the message and expects to receive it back */
+ 124:Src/main.c    **** 
+ARM GAS  /tmp/ccjRLM5G.s 			page 5
+
+
+ 125:Src/main.c    **** 	  /*##-2- Start the transmission process #####################################*/
+ 126:Src/main.c    **** 	  /* While the I2C in reception process, user can transmit data through
+ 127:Src/main.c    **** 	     "aTxBuffer" buffer */
+ 128:Src/main.c    **** 	  while(HAL_I2C_Master_Transmit_DMA(&I2cHandle, (uint16_t)I2C_ADDRESS, (uint8_t*)aTxBuffer, 1)!= H
+ 108              		.loc 1 128 0
+ 109 006a 07E0     		b	.L3
+ 110              	.L4:
+ 129:Src/main.c    **** 	  {
+ 130:Src/main.c    **** 	    /* Error_Handler() function is called when Timeout error occurs.
+ 131:Src/main.c    **** 	       When Acknowledge failure occurs (Slave don't acknowledge it's address)
+ 132:Src/main.c    **** 	       Master restarts communication */
+ 133:Src/main.c    **** 	    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
+ 111              		.loc 1 133 0
+ 112 006c 1A48     		ldr	r0, .L10
+ 113 006e FFF7FEFF 		bl	HAL_I2C_GetError
+ 114 0072 0346     		mov	r3, r0
+ 115 0074 042B     		cmp	r3, #4
+ 116 0076 01D0     		beq	.L3
+ 134:Src/main.c    **** 	    {
+ 135:Src/main.c    **** 	      Error_Handler();
+ 117              		.loc 1 135 0
+ 118 0078 FFF7FEFF 		bl	Error_Handler
+ 119              	.L3:
+ 128:Src/main.c    **** 	  {
+ 120              		.loc 1 128 0 discriminator 1
+ 121 007c 1648     		ldr	r0, .L10
+ 122 007e 40F20F31 		movw	r1, #783
+ 123 0082 184A     		ldr	r2, .L10+12
+ 124 0084 0123     		movs	r3, #1
+ 125 0086 FFF7FEFF 		bl	HAL_I2C_Master_Transmit_DMA
+ 126 008a 0346     		mov	r3, r0
+ 127 008c 002B     		cmp	r3, #0
+ 128 008e EDD1     		bne	.L4
+ 136:Src/main.c    **** 	    }
+ 137:Src/main.c    **** 	  }
+ 138:Src/main.c    **** 
+ 139:Src/main.c    **** 	  /*##-3- Wait for the end of the transfer ###################################*/
+ 140:Src/main.c    **** 	  /*  Before starting a new communication transfer, you need to check the current
+ 141:Src/main.c    **** 	      state of the peripheral; if it�s busy you need to wait for the end of current
+ 142:Src/main.c    **** 	      transfer before starting a new one.
+ 143:Src/main.c    **** 	      For simplicity reasons, this example is just waiting till the end of the
+ 144:Src/main.c    **** 	      transfer, but application may perform other tasks while transfer operation
+ 145:Src/main.c    **** 	      is ongoing. */
+ 146:Src/main.c    **** 	  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
+ 129              		.loc 1 146 0
+ 130 0090 00BF     		nop
+ 131              	.L5:
+ 132              		.loc 1 146 0 is_stmt 0 discriminator 1
+ 133 0092 1148     		ldr	r0, .L10
+ 134 0094 FFF7FEFF 		bl	HAL_I2C_GetState
+ 135 0098 0346     		mov	r3, r0
+ 136 009a 012B     		cmp	r3, #1
+ 137 009c F9D1     		bne	.L5
+ 147:Src/main.c    **** 	  {
+ 148:Src/main.c    **** 	  }
+ 149:Src/main.c    **** 
+ 150:Src/main.c    **** 	  /*##-4- Put I2C peripheral in reception process ############################*/
+ARM GAS  /tmp/ccjRLM5G.s 			page 6
+
+
+ 151:Src/main.c    **** 	  while(HAL_I2C_Master_Receive_DMA(&I2cHandle, (uint16_t)I2C_ADDRESS, (uint8_t *)aRxBuffer, 1) != 
+ 138              		.loc 1 151 0 is_stmt 1
+ 139 009e 07E0     		b	.L6
+ 140              	.L7:
+ 152:Src/main.c    **** 	  {
+ 153:Src/main.c    **** 	    /* Error_Handler() function is called when Timeout error occurs.
+ 154:Src/main.c    **** 	       When Acknowledge failure occurs (Slave don't acknowledge it's address)
+ 155:Src/main.c    **** 	       Master restarts communication */
+ 156:Src/main.c    **** 	    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
+ 141              		.loc 1 156 0
+ 142 00a0 0D48     		ldr	r0, .L10
+ 143 00a2 FFF7FEFF 		bl	HAL_I2C_GetError
+ 144 00a6 0346     		mov	r3, r0
+ 145 00a8 042B     		cmp	r3, #4
+ 146 00aa 01D0     		beq	.L6
+ 157:Src/main.c    **** 	    {
+ 158:Src/main.c    **** 	      Error_Handler();
+ 147              		.loc 1 158 0
+ 148 00ac FFF7FEFF 		bl	Error_Handler
+ 149              	.L6:
+ 151:Src/main.c    **** 	  {
+ 150              		.loc 1 151 0 discriminator 1
+ 151 00b0 0948     		ldr	r0, .L10
+ 152 00b2 40F20F31 		movw	r1, #783
+ 153 00b6 0C4A     		ldr	r2, .L10+16
+ 154 00b8 0123     		movs	r3, #1
+ 155 00ba FFF7FEFF 		bl	HAL_I2C_Master_Receive_DMA
+ 156 00be 0346     		mov	r3, r0
+ 157 00c0 002B     		cmp	r3, #0
+ 158 00c2 EDD1     		bne	.L7
+ 159:Src/main.c    **** 	    }
+ 160:Src/main.c    **** 	  }
+ 161:Src/main.c    **** 
+ 162:Src/main.c    **** 	  /*##-5- Wait for the end of the transfer ###################################*/
+ 163:Src/main.c    **** 	  /*  Before starting a new communication transfer, you need to check the current
+ 164:Src/main.c    **** 	      state of the peripheral; if it�s busy you need to wait for the end of current
+ 165:Src/main.c    **** 	      transfer before starting a new one.
+ 166:Src/main.c    **** 	      For simplicity reasons, this example is just waiting till the end of the
+ 167:Src/main.c    **** 	      transfer, but application may perform other tasks while transfer operation
+ 168:Src/main.c    **** 	      is ongoing. */
+ 169:Src/main.c    **** 	  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
+ 159              		.loc 1 169 0
+ 160 00c4 00BF     		nop
+ 161              	.L8:
+ 162              		.loc 1 169 0 is_stmt 0 discriminator 1
+ 163 00c6 0448     		ldr	r0, .L10
+ 164 00c8 FFF7FEFF 		bl	HAL_I2C_GetState
+ 165 00cc 0346     		mov	r3, r0
+ 166 00ce 012B     		cmp	r3, #1
+ 167 00d0 F9D1     		bne	.L8
+ 170:Src/main.c    **** 	  {
+ 171:Src/main.c    **** 	  }
+ 172:Src/main.c    **** 
+ 173:Src/main.c    ****   }
+ 168              		.loc 1 173 0 is_stmt 1
+ 169 00d2 00BF     		nop
+ 128:Src/main.c    **** 	  {
+ARM GAS  /tmp/ccjRLM5G.s 			page 7
+
+
+ 170              		.loc 1 128 0
+ 171 00d4 D2E7     		b	.L3
+ 172              	.L11:
+ 173 00d6 00BF     		.align	2
+ 174              	.L10:
+ 175 00d8 00000000 		.word	I2cHandle
+ 176 00dc 00540040 		.word	1073763328
+ 177 00e0 801A0600 		.word	400000
+ 178 00e4 00000000 		.word	aTxBuffer
+ 179 00e8 00000000 		.word	aRxBuffer
+ 180              		.cfi_endproc
+ 181              	.LFE125:
+ 183              		.section	.text.Error_Handler,"ax",%progbits
+ 184              		.align	2
+ 185              		.thumb
+ 186              		.thumb_func
+ 188              	Error_Handler:
+ 189              	.LFB126:
+ 174:Src/main.c    **** }
+ 175:Src/main.c    **** 
+ 176:Src/main.c    **** /**
+ 177:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 178:Src/main.c    ****   * @param  None
+ 179:Src/main.c    ****   * @retval None
+ 180:Src/main.c    ****   */
+ 181:Src/main.c    **** static void Error_Handler(void)
+ 182:Src/main.c    **** {
+ 190              		.loc 1 182 0
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 1, uses_anonymous_args = 0
+ 194 0000 80B5     		push	{r7, lr}
+ 195              	.LCFI2:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 7, -8
+ 198              		.cfi_offset 14, -4
+ 199 0002 00AF     		add	r7, sp, #0
+ 200              	.LCFI3:
+ 201              		.cfi_def_cfa_register 7
+ 183:Src/main.c    ****   /* Turn LED4 on */
+ 184:Src/main.c    ****   BSP_LED_On(LED4);
+ 202              		.loc 1 184 0
+ 203 0004 0120     		movs	r0, #1
+ 204 0006 FFF7FEFF 		bl	BSP_LED_On
+ 205              	.L13:
+ 185:Src/main.c    ****   while(1)
+ 186:Src/main.c    ****   {
+ 187:Src/main.c    ****   }
+ 206              		.loc 1 187 0 discriminator 1
+ 207 000a FEE7     		b	.L13
+ 208              		.cfi_endproc
+ 209              	.LFE126:
+ 211              		.section	.text.SystemClock_Config,"ax",%progbits
+ 212              		.align	2
+ 213              		.thumb
+ 214              		.thumb_func
+ 216              	SystemClock_Config:
+ARM GAS  /tmp/ccjRLM5G.s 			page 8
+
+
+ 217              	.LFB127:
+ 188:Src/main.c    **** }
+ 189:Src/main.c    **** 
+ 190:Src/main.c    **** /**
+ 191:Src/main.c    ****   * @brief  System Clock Configuration
+ 192:Src/main.c    ****   *         The system Clock is configured as follow : 
+ 193:Src/main.c    ****   *            System Clock source            = PLL (HSE)
+ 194:Src/main.c    ****   *            SYSCLK(Hz)                     = 180000000
+ 195:Src/main.c    ****   *            HCLK(Hz)                       = 180000000
+ 196:Src/main.c    ****   *            AHB Prescaler                  = 1
+ 197:Src/main.c    ****   *            APB1 Prescaler                 = 4
+ 198:Src/main.c    ****   *            APB2 Prescaler                 = 2
+ 199:Src/main.c    ****   *            HSE Frequency(Hz)              = 8000000
+ 200:Src/main.c    ****   *            PLL_M                          = 8
+ 201:Src/main.c    ****   *            PLL_N                          = 360
+ 202:Src/main.c    ****   *            PLL_P                          = 2
+ 203:Src/main.c    ****   *            PLL_Q                          = 7
+ 204:Src/main.c    ****   *            VDD(V)                         = 3.3
+ 205:Src/main.c    ****   *            Main regulator output voltage  = Scale1 mode
+ 206:Src/main.c    ****   *            Flash Latency(WS)              = 5
+ 207:Src/main.c    ****   * @param  None
+ 208:Src/main.c    ****   * @retval None
+ 209:Src/main.c    ****   */
+ 210:Src/main.c    **** static void SystemClock_Config(void)
+ 211:Src/main.c    **** {
+ 218              		.loc 1 211 0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 80
+ 221              		@ frame_needed = 1, uses_anonymous_args = 0
+ 222 0000 80B5     		push	{r7, lr}
+ 223              	.LCFI4:
+ 224              		.cfi_def_cfa_offset 8
+ 225              		.cfi_offset 7, -8
+ 226              		.cfi_offset 14, -4
+ 227 0002 94B0     		sub	sp, sp, #80
+ 228              	.LCFI5:
+ 229              		.cfi_def_cfa_offset 88
+ 230 0004 00AF     		add	r7, sp, #0
+ 231              	.LCFI6:
+ 232              		.cfi_def_cfa_register 7
+ 233              	.LBB2:
+ 212:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
+ 213:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct;
+ 214:Src/main.c    **** 
+ 215:Src/main.c    ****   /* Enable Power Control clock */
+ 216:Src/main.c    ****   __HAL_RCC_PWR_CLK_ENABLE();
+ 234              		.loc 1 216 0
+ 235 0006 234B     		ldr	r3, .L15
+ 236 0008 224A     		ldr	r2, .L15
+ 237 000a 126C     		ldr	r2, [r2, #64]
+ 238 000c 42F08052 		orr	r2, r2, #268435456
+ 239 0010 1A64     		str	r2, [r3, #64]
+ 240 0012 204B     		ldr	r3, .L15
+ 241 0014 1B6C     		ldr	r3, [r3, #64]
+ 242 0016 03F08053 		and	r3, r3, #268435456
+ 243 001a BB60     		str	r3, [r7, #8]
+ 244 001c BB68     		ldr	r3, [r7, #8]
+ARM GAS  /tmp/ccjRLM5G.s 			page 9
+
+
+ 245              	.LBE2:
+ 246              	.LBB3:
+ 217:Src/main.c    ****   
+ 218:Src/main.c    ****   /* The voltage scaling allows optimizing the power consumption when the device is 
+ 219:Src/main.c    ****      clocked below the maximum system frequency, to update the voltage scaling value 
+ 220:Src/main.c    ****      regarding system frequency refer to product datasheet.  */
+ 221:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 247              		.loc 1 221 0
+ 248 001e 1E4B     		ldr	r3, .L15+4
+ 249 0020 1D4A     		ldr	r2, .L15+4
+ 250 0022 1268     		ldr	r2, [r2]
+ 251 0024 42F44042 		orr	r2, r2, #49152
+ 252 0028 1A60     		str	r2, [r3]
+ 253 002a 1B4B     		ldr	r3, .L15+4
+ 254 002c 1B68     		ldr	r3, [r3]
+ 255 002e 03F44043 		and	r3, r3, #49152
+ 256 0032 7B60     		str	r3, [r7, #4]
+ 257 0034 7B68     		ldr	r3, [r7, #4]
+ 258              	.LBE3:
+ 222:Src/main.c    ****   
+ 223:Src/main.c    ****   /* Enable HSE Oscillator and activate PLL with HSE as source */
+ 224:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+ 259              		.loc 1 224 0
+ 260 0036 0123     		movs	r3, #1
+ 261 0038 FB60     		str	r3, [r7, #12]
+ 225:Src/main.c    ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 262              		.loc 1 225 0
+ 263 003a 0123     		movs	r3, #1
+ 264 003c 3B61     		str	r3, [r7, #16]
+ 226:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 265              		.loc 1 226 0
+ 266 003e 0223     		movs	r3, #2
+ 267 0040 7B62     		str	r3, [r7, #36]
+ 227:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 268              		.loc 1 227 0
+ 269 0042 4FF48003 		mov	r3, #4194304
+ 270 0046 BB62     		str	r3, [r7, #40]
+ 228:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 8;
+ 271              		.loc 1 228 0
+ 272 0048 0823     		movs	r3, #8
+ 273 004a FB62     		str	r3, [r7, #44]
+ 229:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 360;
+ 274              		.loc 1 229 0
+ 275 004c 4FF4B473 		mov	r3, #360
+ 276 0050 3B63     		str	r3, [r7, #48]
+ 230:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 277              		.loc 1 230 0
+ 278 0052 0223     		movs	r3, #2
+ 279 0054 7B63     		str	r3, [r7, #52]
+ 231:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+ 280              		.loc 1 231 0
+ 281 0056 0723     		movs	r3, #7
+ 282 0058 BB63     		str	r3, [r7, #56]
+ 232:Src/main.c    ****   HAL_RCC_OscConfig(&RCC_OscInitStruct);
+ 283              		.loc 1 232 0
+ 284 005a 07F10C03 		add	r3, r7, #12
+ 285 005e 1846     		mov	r0, r3
+ARM GAS  /tmp/ccjRLM5G.s 			page 10
+
+
+ 286 0060 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 233:Src/main.c    **** 
+ 234:Src/main.c    ****   /* Activate the Over-Drive mode */
+ 235:Src/main.c    ****   HAL_PWREx_EnableOverDrive();
+ 287              		.loc 1 235 0
+ 288 0064 FFF7FEFF 		bl	HAL_PWREx_EnableOverDrive
+ 236:Src/main.c    **** 
+ 237:Src/main.c    ****   /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
+ 238:Src/main.c    ****      clocks dividers */
+ 239:Src/main.c    ****   RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | 
+ 289              		.loc 1 239 0
+ 290 0068 0F23     		movs	r3, #15
+ 291 006a FB63     		str	r3, [r7, #60]
+ 240:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 292              		.loc 1 240 0
+ 293 006c 0223     		movs	r3, #2
+ 294 006e 3B64     		str	r3, [r7, #64]
+ 241:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 295              		.loc 1 241 0
+ 296 0070 0023     		movs	r3, #0
+ 297 0072 7B64     		str	r3, [r7, #68]
+ 242:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;  
+ 298              		.loc 1 242 0
+ 299 0074 4FF4A053 		mov	r3, #5120
+ 300 0078 BB64     		str	r3, [r7, #72]
+ 243:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;  
+ 301              		.loc 1 243 0
+ 302 007a 4FF48053 		mov	r3, #4096
+ 303 007e FB64     		str	r3, [r7, #76]
+ 244:Src/main.c    ****   HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
+ 304              		.loc 1 244 0
+ 305 0080 07F13C03 		add	r3, r7, #60
+ 306 0084 1846     		mov	r0, r3
+ 307 0086 0521     		movs	r1, #5
+ 308 0088 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 245:Src/main.c    **** }
+ 309              		.loc 1 245 0
+ 310 008c 5037     		adds	r7, r7, #80
+ 311 008e BD46     		mov	sp, r7
+ 312              		@ sp needed
+ 313 0090 80BD     		pop	{r7, pc}
+ 314              	.L16:
+ 315 0092 00BF     		.align	2
+ 316              	.L15:
+ 317 0094 00380240 		.word	1073887232
+ 318 0098 00700040 		.word	1073770496
+ 319              		.cfi_endproc
+ 320              	.LFE127:
+ 322              		.section	.text.HAL_I2C_SlaveTxCpltCallback,"ax",%progbits
+ 323              		.align	2
+ 324              		.global	HAL_I2C_SlaveTxCpltCallback
+ 325              		.thumb
+ 326              		.thumb_func
+ 328              	HAL_I2C_SlaveTxCpltCallback:
+ 329              	.LFB128:
+ 246:Src/main.c    **** 
+ 247:Src/main.c    **** /**
+ARM GAS  /tmp/ccjRLM5G.s 			page 11
+
+
+ 248:Src/main.c    ****   * @brief  Tx Transfer completed callback.
+ 249:Src/main.c    ****   * @param  I2cHandle: I2C handle
+ 250:Src/main.c    ****   * @note   This example shows a simple way to report end of DMA Tx transfer, and 
+ 251:Src/main.c    ****   *         you can add your own implementation. 
+ 252:Src/main.c    ****   * @retval None
+ 253:Src/main.c    ****   */
+ 254:Src/main.c    **** #ifdef MASTER_BOARD
+ 255:Src/main.c    **** void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *I2cHandle)
+ 256:Src/main.c    **** {
+ 257:Src/main.c    ****   /* Toggle LED3: Transfer in transmission process is correct */
+ 258:Src/main.c    ****   BSP_LED_Toggle(LED3);
+ 259:Src/main.c    **** }
+ 260:Src/main.c    **** #else
+ 261:Src/main.c    **** void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *I2cHandle)
+ 262:Src/main.c    **** {
+ 330              		.loc 1 262 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 8
+ 333              		@ frame_needed = 1, uses_anonymous_args = 0
+ 334 0000 80B5     		push	{r7, lr}
+ 335              	.LCFI7:
+ 336              		.cfi_def_cfa_offset 8
+ 337              		.cfi_offset 7, -8
+ 338              		.cfi_offset 14, -4
+ 339 0002 82B0     		sub	sp, sp, #8
+ 340              	.LCFI8:
+ 341              		.cfi_def_cfa_offset 16
+ 342 0004 00AF     		add	r7, sp, #0
+ 343              	.LCFI9:
+ 344              		.cfi_def_cfa_register 7
+ 345 0006 7860     		str	r0, [r7, #4]
+ 263:Src/main.c    ****   /* Toggle LED3: Transfer in transmission process is correct */
+ 264:Src/main.c    ****   BSP_LED_Toggle(LED3);
+ 346              		.loc 1 264 0
+ 347 0008 0020     		movs	r0, #0
+ 348 000a FFF7FEFF 		bl	BSP_LED_Toggle
+ 265:Src/main.c    **** }
+ 349              		.loc 1 265 0
+ 350 000e 0837     		adds	r7, r7, #8
+ 351 0010 BD46     		mov	sp, r7
+ 352              		@ sp needed
+ 353 0012 80BD     		pop	{r7, pc}
+ 354              		.cfi_endproc
+ 355              	.LFE128:
+ 357              		.section	.text.HAL_I2C_SlaveRxCpltCallback,"ax",%progbits
+ 358              		.align	2
+ 359              		.global	HAL_I2C_SlaveRxCpltCallback
+ 360              		.thumb
+ 361              		.thumb_func
+ 363              	HAL_I2C_SlaveRxCpltCallback:
+ 364              	.LFB129:
+ 266:Src/main.c    **** #endif /* MASTER_BOARD */
+ 267:Src/main.c    **** 
+ 268:Src/main.c    **** /**
+ 269:Src/main.c    ****   * @brief  Rx Transfer completed callback.
+ 270:Src/main.c    ****   * @param  I2cHandle: I2C handle
+ 271:Src/main.c    ****   * @note   This example shows a simple way to report end of DMA Rx transfer, and 
+ARM GAS  /tmp/ccjRLM5G.s 			page 12
+
+
+ 272:Src/main.c    ****   *         you can add your own implementation.
+ 273:Src/main.c    ****   * @retval None
+ 274:Src/main.c    ****   */
+ 275:Src/main.c    **** #ifdef MASTER_BOARD
+ 276:Src/main.c    **** void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *I2cHandle)
+ 277:Src/main.c    **** {
+ 278:Src/main.c    ****   /* Toggle LED3: Transfer in reception process is correct */
+ 279:Src/main.c    ****   BSP_LED_Toggle(LED3);
+ 280:Src/main.c    **** }
+ 281:Src/main.c    **** #else
+ 282:Src/main.c    **** void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *I2cHandle)
+ 283:Src/main.c    **** {
+ 365              		.loc 1 283 0
+ 366              		.cfi_startproc
+ 367              		@ args = 0, pretend = 0, frame = 8
+ 368              		@ frame_needed = 1, uses_anonymous_args = 0
+ 369 0000 80B5     		push	{r7, lr}
+ 370              	.LCFI10:
+ 371              		.cfi_def_cfa_offset 8
+ 372              		.cfi_offset 7, -8
+ 373              		.cfi_offset 14, -4
+ 374 0002 82B0     		sub	sp, sp, #8
+ 375              	.LCFI11:
+ 376              		.cfi_def_cfa_offset 16
+ 377 0004 00AF     		add	r7, sp, #0
+ 378              	.LCFI12:
+ 379              		.cfi_def_cfa_register 7
+ 380 0006 7860     		str	r0, [r7, #4]
+ 284:Src/main.c    ****   /* Toggle LED3: Transfer in reception process is correct */
+ 285:Src/main.c    ****   BSP_LED_Toggle(LED3);
+ 381              		.loc 1 285 0
+ 382 0008 0020     		movs	r0, #0
+ 383 000a FFF7FEFF 		bl	BSP_LED_Toggle
+ 286:Src/main.c    **** }
+ 384              		.loc 1 286 0
+ 385 000e 0837     		adds	r7, r7, #8
+ 386 0010 BD46     		mov	sp, r7
+ 387              		@ sp needed
+ 388 0012 80BD     		pop	{r7, pc}
+ 389              		.cfi_endproc
+ 390              	.LFE129:
+ 392              		.section	.text.HAL_I2C_ErrorCallback,"ax",%progbits
+ 393              		.align	2
+ 394              		.global	HAL_I2C_ErrorCallback
+ 395              		.thumb
+ 396              		.thumb_func
+ 398              	HAL_I2C_ErrorCallback:
+ 399              	.LFB130:
+ 287:Src/main.c    **** #endif /* MASTER_BOARD */
+ 288:Src/main.c    **** 
+ 289:Src/main.c    **** /**
+ 290:Src/main.c    ****   * @brief  I2C error callbacks.
+ 291:Src/main.c    ****   * @param  I2cHandle: I2C handle
+ 292:Src/main.c    ****   * @note   This example shows a simple way to report transfer error, and you can
+ 293:Src/main.c    ****   *         add your own implementation.
+ 294:Src/main.c    ****   * @retval None
+ 295:Src/main.c    ****   */
+ARM GAS  /tmp/ccjRLM5G.s 			page 13
+
+
+ 296:Src/main.c    ****  void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *I2cHandle)
+ 297:Src/main.c    **** {
+ 400              		.loc 1 297 0
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 8
+ 403              		@ frame_needed = 1, uses_anonymous_args = 0
+ 404 0000 80B5     		push	{r7, lr}
+ 405              	.LCFI13:
+ 406              		.cfi_def_cfa_offset 8
+ 407              		.cfi_offset 7, -8
+ 408              		.cfi_offset 14, -4
+ 409 0002 82B0     		sub	sp, sp, #8
+ 410              	.LCFI14:
+ 411              		.cfi_def_cfa_offset 16
+ 412 0004 00AF     		add	r7, sp, #0
+ 413              	.LCFI15:
+ 414              		.cfi_def_cfa_register 7
+ 415 0006 7860     		str	r0, [r7, #4]
+ 298:Src/main.c    ****   /* Turn LED4 on: Transfer error in reception/transmission process */
+ 299:Src/main.c    ****   BSP_LED_On(LED4);
+ 416              		.loc 1 299 0
+ 417 0008 0120     		movs	r0, #1
+ 418 000a FFF7FEFF 		bl	BSP_LED_On
+ 300:Src/main.c    **** }
+ 419              		.loc 1 300 0
+ 420 000e 0837     		adds	r7, r7, #8
+ 421 0010 BD46     		mov	sp, r7
+ 422              		@ sp needed
+ 423 0012 80BD     		pop	{r7, pc}
+ 424              		.cfi_endproc
+ 425              	.LFE130:
+ 427              		.text
+ 428              	.Letext0:
+ 429              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 430              		.file 3 "/usr/include/newlib/stdint.h"
+ 431              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"
+ 432              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 433              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 434              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 435              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 436              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 437              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 438              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 439              		.file 12 "Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.h"
+ 440              		.file 13 "Drivers/CMSIS/Include/core_cm4.h"
+ARM GAS  /tmp/ccjRLM5G.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+                            *COM*:0000000000000040 UartHandle
+     /tmp/ccjRLM5G.s:24     .bss.UartReady:0000000000000000 UartReady
+     /tmp/ccjRLM5G.s:25     .bss.UartReady:0000000000000000 $d
+                            *COM*:00000000000000ff aTxBuffer
+                            *COM*:00000000000000fe aRxBuffer
+     /tmp/ccjRLM5G.s:29     .text.main:0000000000000000 $t
+     /tmp/ccjRLM5G.s:34     .text.main:0000000000000000 main
+     /tmp/ccjRLM5G.s:216    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccjRLM5G.s:188    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccjRLM5G.s:175    .text.main:00000000000000d8 $d
+     /tmp/ccjRLM5G.s:184    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccjRLM5G.s:212    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccjRLM5G.s:317    .text.SystemClock_Config:0000000000000094 $d
+     /tmp/ccjRLM5G.s:323    .text.HAL_I2C_SlaveTxCpltCallback:0000000000000000 $t
+     /tmp/ccjRLM5G.s:328    .text.HAL_I2C_SlaveTxCpltCallback:0000000000000000 HAL_I2C_SlaveTxCpltCallback
+     /tmp/ccjRLM5G.s:358    .text.HAL_I2C_SlaveRxCpltCallback:0000000000000000 $t
+     /tmp/ccjRLM5G.s:363    .text.HAL_I2C_SlaveRxCpltCallback:0000000000000000 HAL_I2C_SlaveRxCpltCallback
+     /tmp/ccjRLM5G.s:393    .text.HAL_I2C_ErrorCallback:0000000000000000 $t
+     /tmp/ccjRLM5G.s:398    .text.HAL_I2C_ErrorCallback:0000000000000000 HAL_I2C_ErrorCallback
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+HAL_Init
+BSP_LED_Init
+HAL_I2C_Init
+HAL_I2C_GetError
+HAL_I2C_Master_Transmit_DMA
+HAL_I2C_GetState
+HAL_I2C_Master_Receive_DMA
+I2cHandle
+BSP_LED_On
+HAL_RCC_OscConfig
+HAL_PWREx_EnableOverDrive
+HAL_RCC_ClockConfig
+BSP_LED_Toggle
