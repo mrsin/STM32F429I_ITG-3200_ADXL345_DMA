@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfZkTCN.s 			page 1
+ARM GAS  /tmp/cc8oUPe9.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   29:Src/stm32f4xx_hal_msp.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   30:Src/stm32f4xx_hal_msp.c ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
   31:Src/stm32f4xx_hal_msp.c ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-ARM GAS  /tmp/ccfZkTCN.s 			page 2
+ARM GAS  /tmp/cc8oUPe9.s 			page 2
 
 
   32:Src/stm32f4xx_hal_msp.c ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   41              	.LCFI2:
   42              		.cfi_def_cfa_register 7
   43 0006 7860     		str	r0, [r7, #4]
-ARM GAS  /tmp/ccfZkTCN.s 			page 3
+ARM GAS  /tmp/cc8oUPe9.s 			page 3
 
 
   44              	.LBB2:
@@ -134,11 +134,11 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   46 0008 634B     		ldr	r3, .L2
   47 000a 634A     		ldr	r2, .L2
   48 000c 126B     		ldr	r2, [r2, #48]
-  49 000e 42F00202 		orr	r2, r2, #2
+  49 000e 42F00102 		orr	r2, r2, #1
   50 0012 1A63     		str	r2, [r3, #48]
   51 0014 604B     		ldr	r3, .L2
   52 0016 1B6B     		ldr	r3, [r3, #48]
-  53 0018 03F00203 		and	r3, r3, #2
+  53 0018 03F00103 		and	r3, r3, #1
   54 001c BB61     		str	r3, [r7, #24]
   55 001e BB69     		ldr	r3, [r7, #24]
   56              	.LBE2:
@@ -148,11 +148,11 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   59 0020 5D4B     		ldr	r3, .L2
   60 0022 5D4A     		ldr	r2, .L2
   61 0024 126B     		ldr	r2, [r2, #48]
-  62 0026 42F00202 		orr	r2, r2, #2
+  62 0026 42F00402 		orr	r2, r2, #4
   63 002a 1A63     		str	r2, [r3, #48]
   64 002c 5A4B     		ldr	r3, .L2
   65 002e 1B6B     		ldr	r3, [r3, #48]
-  66 0030 03F00203 		and	r3, r3, #2
+  66 0030 03F00403 		and	r3, r3, #4
   67 0034 7B61     		str	r3, [r7, #20]
   68 0036 7B69     		ldr	r3, [r7, #20]
   69              	.LBE3:
@@ -163,11 +163,11 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   72 0038 574B     		ldr	r3, .L2
   73 003a 574A     		ldr	r2, .L2
   74 003c 126C     		ldr	r2, [r2, #64]
-  75 003e 42F40012 		orr	r2, r2, #2097152
+  75 003e 42F40002 		orr	r2, r2, #8388608
   76 0042 1A64     		str	r2, [r3, #64]
   77 0044 544B     		ldr	r3, .L2
   78 0046 1B6C     		ldr	r3, [r3, #64]
-  79 0048 03F40013 		and	r3, r3, #2097152
+  79 0048 03F40003 		and	r3, r3, #8388608
   80 004c 3B61     		str	r3, [r7, #16]
   81 004e 3B69     		ldr	r3, [r7, #16]
   82              	.LBE4:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   85 0050 514B     		ldr	r3, .L2
   86 0052 514A     		ldr	r2, .L2
   87 0054 126B     		ldr	r2, [r2, #48]
-ARM GAS  /tmp/ccfZkTCN.s 			page 4
+ARM GAS  /tmp/cc8oUPe9.s 			page 4
 
 
   88 0056 42F40012 		orr	r2, r2, #2097152
@@ -194,276 +194,277 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
   88:Src/stm32f4xx_hal_msp.c ****   /* I2C TX GPIO pin configuration  */
   89:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pin       = I2Cx_SCL_PIN;
   96              		.loc 1 89 0
-  97 0068 4023     		movs	r3, #64
-  98 006a FB61     		str	r3, [r7, #28]
+  97 0068 4FF48073 		mov	r3, #256
+  98 006c FB61     		str	r3, [r7, #28]
   90:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Mode      = GPIO_MODE_AF_OD;
   99              		.loc 1 90 0
- 100 006c 1223     		movs	r3, #18
- 101 006e 3B62     		str	r3, [r7, #32]
+ 100 006e 1223     		movs	r3, #18
+ 101 0070 3B62     		str	r3, [r7, #32]
   91:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pull      = GPIO_PULLUP;
  102              		.loc 1 91 0
- 103 0070 0123     		movs	r3, #1
- 104 0072 7B62     		str	r3, [r7, #36]
+ 103 0072 0123     		movs	r3, #1
+ 104 0074 7B62     		str	r3, [r7, #36]
   92:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Speed     = GPIO_SPEED_FAST;
  105              		.loc 1 92 0
- 106 0074 0223     		movs	r3, #2
- 107 0076 BB62     		str	r3, [r7, #40]
+ 106 0076 0223     		movs	r3, #2
+ 107 0078 BB62     		str	r3, [r7, #40]
   93:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Alternate = I2Cx_SCL_AF;
  108              		.loc 1 93 0
- 109 0078 0423     		movs	r3, #4
- 110 007a FB62     		str	r3, [r7, #44]
+ 109 007a 0423     		movs	r3, #4
+ 110 007c FB62     		str	r3, [r7, #44]
   94:Src/stm32f4xx_hal_msp.c **** 
   95:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_Init(I2Cx_SCL_GPIO_PORT, &GPIO_InitStruct);
  111              		.loc 1 95 0
- 112 007c 07F11C03 		add	r3, r7, #28
- 113 0080 4648     		ldr	r0, .L2+4
- 114 0082 1946     		mov	r1, r3
- 115 0084 FFF7FEFF 		bl	HAL_GPIO_Init
+ 112 007e 07F11C03 		add	r3, r7, #28
+ 113 0082 4648     		ldr	r0, .L2+4
+ 114 0084 1946     		mov	r1, r3
+ 115 0086 FFF7FEFF 		bl	HAL_GPIO_Init
   96:Src/stm32f4xx_hal_msp.c **** 
   97:Src/stm32f4xx_hal_msp.c ****   /* I2C RX GPIO pin configuration  */
   98:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pin = I2Cx_SDA_PIN;
  116              		.loc 1 98 0
- 117 0088 4FF40073 		mov	r3, #512
- 118 008c FB61     		str	r3, [r7, #28]
+ 117 008a 4FF40073 		mov	r3, #512
+ 118 008e FB61     		str	r3, [r7, #28]
   99:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Alternate = I2Cx_SDA_AF;
  119              		.loc 1 99 0
- 120 008e 0423     		movs	r3, #4
- 121 0090 FB62     		str	r3, [r7, #44]
+ 120 0090 0423     		movs	r3, #4
+ 121 0092 FB62     		str	r3, [r7, #44]
  100:Src/stm32f4xx_hal_msp.c **** 
  101:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_Init(I2Cx_SDA_GPIO_PORT, &GPIO_InitStruct);
  122              		.loc 1 101 0
- 123 0092 07F11C03 		add	r3, r7, #28
- 124 0096 4148     		ldr	r0, .L2+4
- 125 0098 1946     		mov	r1, r3
- 126 009a FFF7FEFF 		bl	HAL_GPIO_Init
+ 123 0094 07F11C03 		add	r3, r7, #28
+ 124 0098 4148     		ldr	r0, .L2+8
+ 125 009a 1946     		mov	r1, r3
+ 126 009c FFF7FEFF 		bl	HAL_GPIO_Init
  102:Src/stm32f4xx_hal_msp.c **** 
  103:Src/stm32f4xx_hal_msp.c ****   /*##-3- Configure the DMA streams ##########################################*/
-ARM GAS  /tmp/ccfZkTCN.s 			page 5
+ARM GAS  /tmp/cc8oUPe9.s 			page 5
 
 
  104:Src/stm32f4xx_hal_msp.c ****   /* Configure the DMA handler for Transmission process */
  105:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Instance                 = I2Cx_TX_DMA_STREAM;
  127              		.loc 1 105 0
- 128 009e 404B     		ldr	r3, .L2+8
- 129 00a0 404A     		ldr	r2, .L2+12
- 130 00a2 1A60     		str	r2, [r3]
+ 128 00a0 404B     		ldr	r3, .L2+12
+ 129 00a2 414A     		ldr	r2, .L2+16
+ 130 00a4 1A60     		str	r2, [r3]
  106:Src/stm32f4xx_hal_msp.c **** 
  107:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Channel             = I2Cx_TX_DMA_CHANNEL;
  131              		.loc 1 107 0
- 132 00a4 3E4B     		ldr	r3, .L2+8
- 133 00a6 4FF00072 		mov	r2, #33554432
- 134 00aa 5A60     		str	r2, [r3, #4]
+ 132 00a6 3F4B     		ldr	r3, .L2+12
+ 133 00a8 4FF00072 		mov	r2, #33554432
+ 134 00ac 5A60     		str	r2, [r3, #4]
  108:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Direction           = DMA_MEMORY_TO_PERIPH;
  135              		.loc 1 108 0
- 136 00ac 3C4B     		ldr	r3, .L2+8
- 137 00ae 4022     		movs	r2, #64
- 138 00b0 9A60     		str	r2, [r3, #8]
+ 136 00ae 3D4B     		ldr	r3, .L2+12
+ 137 00b0 4022     		movs	r2, #64
+ 138 00b2 9A60     		str	r2, [r3, #8]
  109:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphInc           = DMA_PINC_DISABLE;
  139              		.loc 1 109 0
- 140 00b2 3B4B     		ldr	r3, .L2+8
- 141 00b4 0022     		movs	r2, #0
- 142 00b6 DA60     		str	r2, [r3, #12]
+ 140 00b4 3B4B     		ldr	r3, .L2+12
+ 141 00b6 0022     		movs	r2, #0
+ 142 00b8 DA60     		str	r2, [r3, #12]
  110:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemInc              = DMA_MINC_ENABLE;
  143              		.loc 1 110 0
- 144 00b8 394B     		ldr	r3, .L2+8
- 145 00ba 4FF48062 		mov	r2, #1024
- 146 00be 1A61     		str	r2, [r3, #16]
+ 144 00ba 3A4B     		ldr	r3, .L2+12
+ 145 00bc 4FF48062 		mov	r2, #1024
+ 146 00c0 1A61     		str	r2, [r3, #16]
  111:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
  147              		.loc 1 111 0
- 148 00c0 374B     		ldr	r3, .L2+8
- 149 00c2 0022     		movs	r2, #0
- 150 00c4 5A61     		str	r2, [r3, #20]
+ 148 00c2 384B     		ldr	r3, .L2+12
+ 149 00c4 0022     		movs	r2, #0
+ 150 00c6 5A61     		str	r2, [r3, #20]
  112:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
  151              		.loc 1 112 0
- 152 00c6 364B     		ldr	r3, .L2+8
- 153 00c8 0022     		movs	r2, #0
- 154 00ca 9A61     		str	r2, [r3, #24]
+ 152 00c8 364B     		ldr	r3, .L2+12
+ 153 00ca 0022     		movs	r2, #0
+ 154 00cc 9A61     		str	r2, [r3, #24]
  113:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Mode                = DMA_NORMAL;
  155              		.loc 1 113 0
- 156 00cc 344B     		ldr	r3, .L2+8
- 157 00ce 0022     		movs	r2, #0
- 158 00d0 DA61     		str	r2, [r3, #28]
+ 156 00ce 354B     		ldr	r3, .L2+12
+ 157 00d0 0022     		movs	r2, #0
+ 158 00d2 DA61     		str	r2, [r3, #28]
  114:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Priority            = DMA_PRIORITY_LOW;
  159              		.loc 1 114 0
- 160 00d2 334B     		ldr	r3, .L2+8
- 161 00d4 0022     		movs	r2, #0
- 162 00d6 1A62     		str	r2, [r3, #32]
+ 160 00d4 334B     		ldr	r3, .L2+12
+ 161 00d6 0022     		movs	r2, #0
+ 162 00d8 1A62     		str	r2, [r3, #32]
  115:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
  163              		.loc 1 115 0
- 164 00d8 314B     		ldr	r3, .L2+8
- 165 00da 0022     		movs	r2, #0
- 166 00dc 5A62     		str	r2, [r3, #36]
+ 164 00da 324B     		ldr	r3, .L2+12
+ 165 00dc 0022     		movs	r2, #0
+ 166 00de 5A62     		str	r2, [r3, #36]
  116:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
  167              		.loc 1 116 0
- 168 00de 304B     		ldr	r3, .L2+8
- 169 00e0 0322     		movs	r2, #3
- 170 00e2 9A62     		str	r2, [r3, #40]
-ARM GAS  /tmp/ccfZkTCN.s 			page 6
+ 168 00e0 304B     		ldr	r3, .L2+12
+ 169 00e2 0322     		movs	r2, #3
+ 170 00e4 9A62     		str	r2, [r3, #40]
+ARM GAS  /tmp/cc8oUPe9.s 			page 6
 
 
  117:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemBurst            = DMA_MBURST_INC4;
  171              		.loc 1 117 0
- 172 00e4 2E4B     		ldr	r3, .L2+8
- 173 00e6 4FF40002 		mov	r2, #8388608
- 174 00ea DA62     		str	r2, [r3, #44]
+ 172 00e6 2F4B     		ldr	r3, .L2+12
+ 173 00e8 4FF40002 		mov	r2, #8388608
+ 174 00ec DA62     		str	r2, [r3, #44]
  118:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphBurst         = DMA_PBURST_INC4;
  175              		.loc 1 118 0
- 176 00ec 2C4B     		ldr	r3, .L2+8
- 177 00ee 4FF40012 		mov	r2, #2097152
- 178 00f2 1A63     		str	r2, [r3, #48]
+ 176 00ee 2D4B     		ldr	r3, .L2+12
+ 177 00f0 4FF40012 		mov	r2, #2097152
+ 178 00f4 1A63     		str	r2, [r3, #48]
  119:Src/stm32f4xx_hal_msp.c **** 
  120:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_Init(&hdma_tx);
  179              		.loc 1 120 0
- 180 00f4 2A48     		ldr	r0, .L2+8
- 181 00f6 FFF7FEFF 		bl	HAL_DMA_Init
+ 180 00f6 2B48     		ldr	r0, .L2+12
+ 181 00f8 FFF7FEFF 		bl	HAL_DMA_Init
  121:Src/stm32f4xx_hal_msp.c **** 
  122:Src/stm32f4xx_hal_msp.c ****   /* Associate the initialized DMA handle to the the I2C handle */
  123:Src/stm32f4xx_hal_msp.c ****   __HAL_LINKDMA(hi2c, hdmatx, hdma_tx);
  182              		.loc 1 123 0
- 183 00fa 7B68     		ldr	r3, [r7, #4]
- 184 00fc 284A     		ldr	r2, .L2+8
- 185 00fe DA62     		str	r2, [r3, #44]
- 186 0100 274B     		ldr	r3, .L2+8
- 187 0102 7A68     		ldr	r2, [r7, #4]
- 188 0104 9A63     		str	r2, [r3, #56]
+ 183 00fc 7B68     		ldr	r3, [r7, #4]
+ 184 00fe 294A     		ldr	r2, .L2+12
+ 185 0100 DA62     		str	r2, [r3, #44]
+ 186 0102 284B     		ldr	r3, .L2+12
+ 187 0104 7A68     		ldr	r2, [r7, #4]
+ 188 0106 9A63     		str	r2, [r3, #56]
  124:Src/stm32f4xx_hal_msp.c **** 
  125:Src/stm32f4xx_hal_msp.c ****   /* Configure the DMA handler for Transmission process */
  126:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Instance                 = I2Cx_RX_DMA_STREAM;
  189              		.loc 1 126 0
- 190 0106 284B     		ldr	r3, .L2+16
- 191 0108 284A     		ldr	r2, .L2+20
- 192 010a 1A60     		str	r2, [r3]
+ 190 0108 284B     		ldr	r3, .L2+20
+ 191 010a 294A     		ldr	r2, .L2+24
+ 192 010c 1A60     		str	r2, [r3]
  127:Src/stm32f4xx_hal_msp.c **** 
  128:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Channel             = I2Cx_RX_DMA_CHANNEL;
  193              		.loc 1 128 0
- 194 010c 264B     		ldr	r3, .L2+16
- 195 010e 4FF00072 		mov	r2, #33554432
- 196 0112 5A60     		str	r2, [r3, #4]
+ 194 010e 274B     		ldr	r3, .L2+20
+ 195 0110 4FF00072 		mov	r2, #33554432
+ 196 0114 5A60     		str	r2, [r3, #4]
  129:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Direction           = DMA_PERIPH_TO_MEMORY;
  197              		.loc 1 129 0
- 198 0114 244B     		ldr	r3, .L2+16
- 199 0116 0022     		movs	r2, #0
- 200 0118 9A60     		str	r2, [r3, #8]
+ 198 0116 254B     		ldr	r3, .L2+20
+ 199 0118 0022     		movs	r2, #0
+ 200 011a 9A60     		str	r2, [r3, #8]
  130:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphInc           = DMA_PINC_DISABLE;
  201              		.loc 1 130 0
- 202 011a 234B     		ldr	r3, .L2+16
- 203 011c 0022     		movs	r2, #0
- 204 011e DA60     		str	r2, [r3, #12]
+ 202 011c 234B     		ldr	r3, .L2+20
+ 203 011e 0022     		movs	r2, #0
+ 204 0120 DA60     		str	r2, [r3, #12]
  131:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemInc              = DMA_MINC_ENABLE;
  205              		.loc 1 131 0
- 206 0120 214B     		ldr	r3, .L2+16
- 207 0122 4FF48062 		mov	r2, #1024
- 208 0126 1A61     		str	r2, [r3, #16]
+ 206 0122 224B     		ldr	r3, .L2+20
+ 207 0124 4FF48062 		mov	r2, #1024
+ 208 0128 1A61     		str	r2, [r3, #16]
  132:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
  209              		.loc 1 132 0
- 210 0128 1F4B     		ldr	r3, .L2+16
- 211 012a 0022     		movs	r2, #0
-ARM GAS  /tmp/ccfZkTCN.s 			page 7
+ 210 012a 204B     		ldr	r3, .L2+20
+ 211 012c 0022     		movs	r2, #0
+ARM GAS  /tmp/cc8oUPe9.s 			page 7
 
 
- 212 012c 5A61     		str	r2, [r3, #20]
+ 212 012e 5A61     		str	r2, [r3, #20]
  133:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
  213              		.loc 1 133 0
- 214 012e 1E4B     		ldr	r3, .L2+16
- 215 0130 0022     		movs	r2, #0
- 216 0132 9A61     		str	r2, [r3, #24]
+ 214 0130 1E4B     		ldr	r3, .L2+20
+ 215 0132 0022     		movs	r2, #0
+ 216 0134 9A61     		str	r2, [r3, #24]
  134:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Mode                = DMA_NORMAL;
  217              		.loc 1 134 0
- 218 0134 1C4B     		ldr	r3, .L2+16
- 219 0136 0022     		movs	r2, #0
- 220 0138 DA61     		str	r2, [r3, #28]
+ 218 0136 1D4B     		ldr	r3, .L2+20
+ 219 0138 0022     		movs	r2, #0
+ 220 013a DA61     		str	r2, [r3, #28]
  135:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Priority            = DMA_PRIORITY_HIGH;
  221              		.loc 1 135 0
- 222 013a 1B4B     		ldr	r3, .L2+16
- 223 013c 4FF40032 		mov	r2, #131072
- 224 0140 1A62     		str	r2, [r3, #32]
+ 222 013c 1B4B     		ldr	r3, .L2+20
+ 223 013e 4FF40032 		mov	r2, #131072
+ 224 0142 1A62     		str	r2, [r3, #32]
  136:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
  225              		.loc 1 136 0
- 226 0142 194B     		ldr	r3, .L2+16
- 227 0144 0022     		movs	r2, #0
- 228 0146 5A62     		str	r2, [r3, #36]
+ 226 0144 194B     		ldr	r3, .L2+20
+ 227 0146 0022     		movs	r2, #0
+ 228 0148 5A62     		str	r2, [r3, #36]
  137:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
  229              		.loc 1 137 0
- 230 0148 174B     		ldr	r3, .L2+16
- 231 014a 0322     		movs	r2, #3
- 232 014c 9A62     		str	r2, [r3, #40]
+ 230 014a 184B     		ldr	r3, .L2+20
+ 231 014c 0322     		movs	r2, #3
+ 232 014e 9A62     		str	r2, [r3, #40]
  138:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemBurst            = DMA_MBURST_INC4;
  233              		.loc 1 138 0
- 234 014e 164B     		ldr	r3, .L2+16
- 235 0150 4FF40002 		mov	r2, #8388608
- 236 0154 DA62     		str	r2, [r3, #44]
+ 234 0150 164B     		ldr	r3, .L2+20
+ 235 0152 4FF40002 		mov	r2, #8388608
+ 236 0156 DA62     		str	r2, [r3, #44]
  139:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphBurst         = DMA_PBURST_INC4;
  237              		.loc 1 139 0
- 238 0156 144B     		ldr	r3, .L2+16
- 239 0158 4FF40012 		mov	r2, #2097152
- 240 015c 1A63     		str	r2, [r3, #48]
+ 238 0158 144B     		ldr	r3, .L2+20
+ 239 015a 4FF40012 		mov	r2, #2097152
+ 240 015e 1A63     		str	r2, [r3, #48]
  140:Src/stm32f4xx_hal_msp.c **** 
  141:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_Init(&hdma_rx);
  241              		.loc 1 141 0
- 242 015e 1248     		ldr	r0, .L2+16
- 243 0160 FFF7FEFF 		bl	HAL_DMA_Init
+ 242 0160 1248     		ldr	r0, .L2+20
+ 243 0162 FFF7FEFF 		bl	HAL_DMA_Init
  142:Src/stm32f4xx_hal_msp.c **** 
  143:Src/stm32f4xx_hal_msp.c ****   /* Associate the initialized DMA handle to the the I2C handle */
  144:Src/stm32f4xx_hal_msp.c ****   __HAL_LINKDMA(hi2c, hdmarx, hdma_rx);
  244              		.loc 1 144 0
- 245 0164 7B68     		ldr	r3, [r7, #4]
- 246 0166 104A     		ldr	r2, .L2+16
- 247 0168 1A63     		str	r2, [r3, #48]
- 248 016a 0F4B     		ldr	r3, .L2+16
- 249 016c 7A68     		ldr	r2, [r7, #4]
- 250 016e 9A63     		str	r2, [r3, #56]
+ 245 0166 7B68     		ldr	r3, [r7, #4]
+ 246 0168 104A     		ldr	r2, .L2+20
+ 247 016a 1A63     		str	r2, [r3, #48]
+ 248 016c 0F4B     		ldr	r3, .L2+20
+ 249 016e 7A68     		ldr	r2, [r7, #4]
+ 250 0170 9A63     		str	r2, [r3, #56]
  145:Src/stm32f4xx_hal_msp.c **** 
  146:Src/stm32f4xx_hal_msp.c ****   /*##-4- Configure the NVIC for DMA #########################################*/
  147:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for DMA transfer complete interrupt (I2C1_TX) */
  148:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(I2Cx_DMA_TX_IRQn, 0, 1);
  251              		.loc 1 148 0
- 252 0170 1120     		movs	r0, #17
-ARM GAS  /tmp/ccfZkTCN.s 			page 8
+ 252 0172 0F20     		movs	r0, #15
+ARM GAS  /tmp/cc8oUPe9.s 			page 8
 
 
- 253 0172 0021     		movs	r1, #0
- 254 0174 0122     		movs	r2, #1
- 255 0176 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 253 0174 0021     		movs	r1, #0
+ 254 0176 0122     		movs	r2, #1
+ 255 0178 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  149:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(I2Cx_DMA_TX_IRQn);
  256              		.loc 1 149 0
- 257 017a 1120     		movs	r0, #17
- 258 017c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 257 017c 0F20     		movs	r0, #15
+ 258 017e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  150:Src/stm32f4xx_hal_msp.c **** 
  151:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for DMA transfer complete interrupt (I2C1_RX) */
  152:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(I2Cx_DMA_RX_IRQn, 0, 0);
  259              		.loc 1 152 0
- 260 0180 1020     		movs	r0, #16
- 261 0182 0021     		movs	r1, #0
- 262 0184 0022     		movs	r2, #0
- 263 0186 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 260 0182 0D20     		movs	r0, #13
+ 261 0184 0021     		movs	r1, #0
+ 262 0186 0022     		movs	r2, #0
+ 263 0188 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  153:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(I2Cx_DMA_RX_IRQn);
  264              		.loc 1 153 0
- 265 018a 1020     		movs	r0, #16
- 266 018c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 265 018c 0D20     		movs	r0, #13
+ 266 018e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  154:Src/stm32f4xx_hal_msp.c **** }
  267              		.loc 1 154 0
- 268 0190 3037     		adds	r7, r7, #48
- 269 0192 BD46     		mov	sp, r7
+ 268 0192 3037     		adds	r7, r7, #48
+ 269 0194 BD46     		mov	sp, r7
  270              		@ sp needed
- 271 0194 80BD     		pop	{r7, pc}
+ 271 0196 80BD     		pop	{r7, pc}
  272              	.L3:
- 273 0196 00BF     		.align	2
+ 273              		.align	2
  274              	.L2:
  275 0198 00380240 		.word	1073887232
- 276 019c 00040240 		.word	1073873920
- 277 01a0 00000000 		.word	hdma_tx.7359
- 278 01a4 A0600240 		.word	1073897632
- 279 01a8 00000000 		.word	hdma_rx.7360
- 280 01ac 88600240 		.word	1073897608
- 281              		.cfi_endproc
- 282              	.LFE125:
- 284              		.section	.text.HAL_I2C_MspDeInit,"ax",%progbits
- 285              		.align	2
- 286              		.global	HAL_I2C_MspDeInit
- 287              		.thumb
- 288              		.thumb_func
- 290              	HAL_I2C_MspDeInit:
- 291              	.LFB126:
+ 276 019c 00000240 		.word	1073872896
+ 277 01a0 00080240 		.word	1073874944
+ 278 01a4 00000000 		.word	hdma_tx.7359
+ 279 01a8 70600240 		.word	1073897584
+ 280 01ac 00000000 		.word	hdma_rx.7360
+ 281 01b0 40600240 		.word	1073897536
+ 282              		.cfi_endproc
+ 283              	.LFE125:
+ 285              		.section	.text.HAL_I2C_MspDeInit,"ax",%progbits
+ 286              		.align	2
+ 287              		.global	HAL_I2C_MspDeInit
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	HAL_I2C_MspDeInit:
+ 292              	.LFB126:
  155:Src/stm32f4xx_hal_msp.c **** 
  156:Src/stm32f4xx_hal_msp.c **** /**
  157:Src/stm32f4xx_hal_msp.c ****   * @brief I2C MSP De-Initialization
@@ -475,105 +476,106 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
  163:Src/stm32f4xx_hal_msp.c ****   */
  164:Src/stm32f4xx_hal_msp.c **** void HAL_I2C_MspDeInit(I2C_HandleTypeDef *hi2c)
  165:Src/stm32f4xx_hal_msp.c **** {
- 292              		.loc 1 165 0
- 293              		.cfi_startproc
- 294              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  /tmp/ccfZkTCN.s 			page 9
+ 293              		.loc 1 165 0
+ 294              		.cfi_startproc
+ARM GAS  /tmp/cc8oUPe9.s 			page 9
 
 
- 295              		@ frame_needed = 1, uses_anonymous_args = 0
- 296 0000 80B5     		push	{r7, lr}
- 297              	.LCFI3:
- 298              		.cfi_def_cfa_offset 8
- 299              		.cfi_offset 7, -8
- 300              		.cfi_offset 14, -4
- 301 0002 82B0     		sub	sp, sp, #8
- 302              	.LCFI4:
- 303              		.cfi_def_cfa_offset 16
- 304 0004 00AF     		add	r7, sp, #0
- 305              	.LCFI5:
- 306              		.cfi_def_cfa_register 7
- 307 0006 7860     		str	r0, [r7, #4]
+ 295              		@ args = 0, pretend = 0, frame = 8
+ 296              		@ frame_needed = 1, uses_anonymous_args = 0
+ 297 0000 80B5     		push	{r7, lr}
+ 298              	.LCFI3:
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 7, -8
+ 301              		.cfi_offset 14, -4
+ 302 0002 82B0     		sub	sp, sp, #8
+ 303              	.LCFI4:
+ 304              		.cfi_def_cfa_offset 16
+ 305 0004 00AF     		add	r7, sp, #0
+ 306              	.LCFI5:
+ 307              		.cfi_def_cfa_register 7
+ 308 0006 7860     		str	r0, [r7, #4]
  166:Src/stm32f4xx_hal_msp.c **** 
  167:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_tx;
  168:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_rx;
  169:Src/stm32f4xx_hal_msp.c **** 
  170:Src/stm32f4xx_hal_msp.c ****   /*##-1- Reset peripherals ##################################################*/
  171:Src/stm32f4xx_hal_msp.c ****   I2Cx_FORCE_RESET();
- 308              		.loc 1 171 0
- 309 0008 114B     		ldr	r3, .L5
- 310 000a 114A     		ldr	r2, .L5
- 311 000c 126A     		ldr	r2, [r2, #32]
- 312 000e 42F40012 		orr	r2, r2, #2097152
- 313 0012 1A62     		str	r2, [r3, #32]
+ 309              		.loc 1 171 0
+ 310 0008 124B     		ldr	r3, .L5
+ 311 000a 124A     		ldr	r2, .L5
+ 312 000c 126A     		ldr	r2, [r2, #32]
+ 313 000e 42F40002 		orr	r2, r2, #8388608
+ 314 0012 1A62     		str	r2, [r3, #32]
  172:Src/stm32f4xx_hal_msp.c ****   I2Cx_RELEASE_RESET();
- 314              		.loc 1 172 0
- 315 0014 0E4B     		ldr	r3, .L5
- 316 0016 0E4A     		ldr	r2, .L5
- 317 0018 126A     		ldr	r2, [r2, #32]
- 318 001a 22F40012 		bic	r2, r2, #2097152
- 319 001e 1A62     		str	r2, [r3, #32]
+ 315              		.loc 1 172 0
+ 316 0014 0F4B     		ldr	r3, .L5
+ 317 0016 0F4A     		ldr	r2, .L5
+ 318 0018 126A     		ldr	r2, [r2, #32]
+ 319 001a 22F40002 		bic	r2, r2, #8388608
+ 320 001e 1A62     		str	r2, [r3, #32]
  173:Src/stm32f4xx_hal_msp.c **** 
  174:Src/stm32f4xx_hal_msp.c ****   /*##-2- Disable peripherals and GPIO Clocks ################################*/
  175:Src/stm32f4xx_hal_msp.c ****   /* Configure I2C Tx as alternate function  */
  176:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_DeInit(I2Cx_SCL_GPIO_PORT, I2Cx_SCL_PIN);
- 320              		.loc 1 176 0
- 321 0020 0C48     		ldr	r0, .L5+4
- 322 0022 4021     		movs	r1, #64
- 323 0024 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 321              		.loc 1 176 0
+ 322 0020 0D48     		ldr	r0, .L5+4
+ 323 0022 4FF48071 		mov	r1, #256
+ 324 0026 FFF7FEFF 		bl	HAL_GPIO_DeInit
  177:Src/stm32f4xx_hal_msp.c ****   /* Configure I2C Rx as alternate function  */
  178:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_DeInit(I2Cx_SDA_GPIO_PORT, I2Cx_SDA_PIN);
- 324              		.loc 1 178 0
- 325 0028 0A48     		ldr	r0, .L5+4
- 326 002a 4FF40071 		mov	r1, #512
- 327 002e FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 325              		.loc 1 178 0
+ 326 002a 0C48     		ldr	r0, .L5+8
+ 327 002c 4FF40071 		mov	r1, #512
+ 328 0030 FFF7FEFF 		bl	HAL_GPIO_DeInit
  179:Src/stm32f4xx_hal_msp.c **** 
  180:Src/stm32f4xx_hal_msp.c ****   /*##-3- Disable the DMA Streams ############################################*/
  181:Src/stm32f4xx_hal_msp.c ****   /* De-Initialize the DMA Stream associate to transmission process */
  182:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_DeInit(&hdma_tx);
- 328              		.loc 1 182 0
- 329 0032 0948     		ldr	r0, .L5+8
- 330 0034 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 329              		.loc 1 182 0
+ 330 0034 0A48     		ldr	r0, .L5+12
+ 331 0036 FFF7FEFF 		bl	HAL_DMA_DeInit
  183:Src/stm32f4xx_hal_msp.c ****   /* De-Initialize the DMA Stream associate to reception process */
  184:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_DeInit(&hdma_rx);
- 331              		.loc 1 184 0
- 332 0038 0848     		ldr	r0, .L5+12
-ARM GAS  /tmp/ccfZkTCN.s 			page 10
+ 332              		.loc 1 184 0
+ARM GAS  /tmp/cc8oUPe9.s 			page 10
 
 
- 333 003a FFF7FEFF 		bl	HAL_DMA_DeInit
+ 333 003a 0A48     		ldr	r0, .L5+16
+ 334 003c FFF7FEFF 		bl	HAL_DMA_DeInit
  185:Src/stm32f4xx_hal_msp.c **** 
  186:Src/stm32f4xx_hal_msp.c ****   /*##-4- Disable the NVIC for DMA ###########################################*/
  187:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_DisableIRQ(I2Cx_DMA_TX_IRQn);
- 334              		.loc 1 187 0
- 335 003e 1120     		movs	r0, #17
- 336 0040 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 335              		.loc 1 187 0
+ 336 0040 0F20     		movs	r0, #15
+ 337 0042 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
  188:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_DisableIRQ(I2Cx_DMA_RX_IRQn);
- 337              		.loc 1 188 0
- 338 0044 1020     		movs	r0, #16
- 339 0046 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 338              		.loc 1 188 0
+ 339 0046 0D20     		movs	r0, #13
+ 340 0048 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
  189:Src/stm32f4xx_hal_msp.c **** }
- 340              		.loc 1 189 0
- 341 004a 0837     		adds	r7, r7, #8
- 342 004c BD46     		mov	sp, r7
- 343              		@ sp needed
- 344 004e 80BD     		pop	{r7, pc}
- 345              	.L6:
- 346              		.align	2
- 347              	.L5:
- 348 0050 00380240 		.word	1073887232
- 349 0054 00040240 		.word	1073873920
- 350 0058 00000000 		.word	hdma_tx.7369
- 351 005c 00000000 		.word	hdma_rx.7370
- 352              		.cfi_endproc
- 353              	.LFE126:
- 355              		.section	.text.HAL_UART_MspInit,"ax",%progbits
- 356              		.align	2
- 357              		.global	HAL_UART_MspInit
- 358              		.thumb
- 359              		.thumb_func
- 361              	HAL_UART_MspInit:
- 362              	.LFB127:
+ 341              		.loc 1 189 0
+ 342 004c 0837     		adds	r7, r7, #8
+ 343 004e BD46     		mov	sp, r7
+ 344              		@ sp needed
+ 345 0050 80BD     		pop	{r7, pc}
+ 346              	.L6:
+ 347 0052 00BF     		.align	2
+ 348              	.L5:
+ 349 0054 00380240 		.word	1073887232
+ 350 0058 00000240 		.word	1073872896
+ 351 005c 00080240 		.word	1073874944
+ 352 0060 00000000 		.word	hdma_tx.7369
+ 353 0064 00000000 		.word	hdma_rx.7370
+ 354              		.cfi_endproc
+ 355              	.LFE126:
+ 357              		.section	.text.HAL_UART_MspInit,"ax",%progbits
+ 358              		.align	2
+ 359              		.global	HAL_UART_MspInit
+ 360              		.thumb
+ 361              		.thumb_func
+ 363              	HAL_UART_MspInit:
+ 364              	.LFB127:
  190:Src/stm32f4xx_hal_msp.c **** 
  191:Src/stm32f4xx_hal_msp.c **** /**
  192:Src/stm32f4xx_hal_msp.c ****   * @}
@@ -596,11 +598,11 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
  209:Src/stm32f4xx_hal_msp.c ****   ******************************************************************************
  210:Src/stm32f4xx_hal_msp.c ****   * @file    UART/UART_TwoBoards_ComDMA/Src/stm32f4xx_hal_msp.c
  211:Src/stm32f4xx_hal_msp.c ****   * @author  MCD Application Team
+ARM GAS  /tmp/cc8oUPe9.s 			page 11
+
+
  212:Src/stm32f4xx_hal_msp.c ****   * @version V1.2.3
  213:Src/stm32f4xx_hal_msp.c ****   * @date    09-October-2015 
-ARM GAS  /tmp/ccfZkTCN.s 			page 11
-
-
  214:Src/stm32f4xx_hal_msp.c ****   * @brief   HAL MSP module.    
  215:Src/stm32f4xx_hal_msp.c ****   ******************************************************************************
  216:Src/stm32f4xx_hal_msp.c ****   * @attention
@@ -632,630 +634,627 @@ ARM GAS  /tmp/ccfZkTCN.s 			page 1
  242:Src/stm32f4xx_hal_msp.c ****   ******************************************************************************  
  243:Src/stm32f4xx_hal_msp.c ****   */ 
  244:Src/stm32f4xx_hal_msp.c **** 
- 245:Src/stm32f4xx_hal_msp.c **** /* Includes ------------------------------------------------------------------*/
- 246:Src/stm32f4xx_hal_msp.c **** #include "main.h"
- 247:Src/stm32f4xx_hal_msp.c **** 
- 248:Src/stm32f4xx_hal_msp.c **** /** @addtogroup STM32F4xx_HAL_Examples
- 249:Src/stm32f4xx_hal_msp.c ****   * @{
- 250:Src/stm32f4xx_hal_msp.c ****   */
- 251:Src/stm32f4xx_hal_msp.c **** 
- 252:Src/stm32f4xx_hal_msp.c **** /** @defgroup UART_TwoBoards_ComDMA
- 253:Src/stm32f4xx_hal_msp.c ****   * @{
- 254:Src/stm32f4xx_hal_msp.c ****   */
- 255:Src/stm32f4xx_hal_msp.c **** 
- 256:Src/stm32f4xx_hal_msp.c **** /* Private typedef -----------------------------------------------------------*/
- 257:Src/stm32f4xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
- 258:Src/stm32f4xx_hal_msp.c **** /* Private macro -------------------------------------------------------------*/
- 259:Src/stm32f4xx_hal_msp.c **** /* Private variables ---------------------------------------------------------*/
- 260:Src/stm32f4xx_hal_msp.c **** /* Private function prototypes -----------------------------------------------*/
- 261:Src/stm32f4xx_hal_msp.c **** /* Private functions ---------------------------------------------------------*/
- 262:Src/stm32f4xx_hal_msp.c **** 
- 263:Src/stm32f4xx_hal_msp.c **** /** @defgroup HAL_MSP_Private_Functions
- 264:Src/stm32f4xx_hal_msp.c ****   * @{
- 265:Src/stm32f4xx_hal_msp.c ****   */
- 266:Src/stm32f4xx_hal_msp.c **** 
- 267:Src/stm32f4xx_hal_msp.c **** /**
- 268:Src/stm32f4xx_hal_msp.c ****   * @brief UART MSP Initialization 
- 269:Src/stm32f4xx_hal_msp.c ****   *        This function configures the hardware resources used in this example: 
- 270:Src/stm32f4xx_hal_msp.c ****   *           - Peripheral's clock enable
-ARM GAS  /tmp/ccfZkTCN.s 			page 12
+ 245:Src/stm32f4xx_hal_msp.c **** /** @addtogroup STM32F4xx_HAL_Examples
+ 246:Src/stm32f4xx_hal_msp.c ****   * @{
+ 247:Src/stm32f4xx_hal_msp.c ****   */
+ 248:Src/stm32f4xx_hal_msp.c **** 
+ 249:Src/stm32f4xx_hal_msp.c **** /** @defgroup UART_TwoBoards_ComDMA
+ 250:Src/stm32f4xx_hal_msp.c ****   * @{
+ 251:Src/stm32f4xx_hal_msp.c ****   */
+ 252:Src/stm32f4xx_hal_msp.c **** 
+ 253:Src/stm32f4xx_hal_msp.c **** /* Private typedef -----------------------------------------------------------*/
+ 254:Src/stm32f4xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
+ 255:Src/stm32f4xx_hal_msp.c **** /* Private macro -------------------------------------------------------------*/
+ 256:Src/stm32f4xx_hal_msp.c **** /* Private variables ---------------------------------------------------------*/
+ 257:Src/stm32f4xx_hal_msp.c **** /* Private function prototypes -----------------------------------------------*/
+ 258:Src/stm32f4xx_hal_msp.c **** /* Private functions ---------------------------------------------------------*/
+ 259:Src/stm32f4xx_hal_msp.c **** 
+ 260:Src/stm32f4xx_hal_msp.c **** /** @defgroup HAL_MSP_Private_Functions
+ 261:Src/stm32f4xx_hal_msp.c ****   * @{
+ 262:Src/stm32f4xx_hal_msp.c ****   */
+ 263:Src/stm32f4xx_hal_msp.c **** 
+ 264:Src/stm32f4xx_hal_msp.c **** /**
+ 265:Src/stm32f4xx_hal_msp.c ****   * @brief UART MSP Initialization 
+ 266:Src/stm32f4xx_hal_msp.c ****   *        This function configures the hardware resources used in this example: 
+ 267:Src/stm32f4xx_hal_msp.c ****   *           - Peripheral's clock enable
+ 268:Src/stm32f4xx_hal_msp.c ****   *           - Peripheral's GPIO Configuration  
+ARM GAS  /tmp/cc8oUPe9.s 			page 12
 
 
- 271:Src/stm32f4xx_hal_msp.c ****   *           - Peripheral's GPIO Configuration  
- 272:Src/stm32f4xx_hal_msp.c ****   *           - DMA configuration for transmission request by peripheral 
- 273:Src/stm32f4xx_hal_msp.c ****   *           - NVIC configuration for DMA interrupt request enable
- 274:Src/stm32f4xx_hal_msp.c ****   * @param huart: UART handle pointer
- 275:Src/stm32f4xx_hal_msp.c ****   * @retval None
- 276:Src/stm32f4xx_hal_msp.c ****   */
- 277:Src/stm32f4xx_hal_msp.c **** void HAL_UART_MspInit(UART_HandleTypeDef *huart)
- 278:Src/stm32f4xx_hal_msp.c **** {
- 363              		.loc 1 278 0
- 364              		.cfi_startproc
- 365              		@ args = 0, pretend = 0, frame = 48
- 366              		@ frame_needed = 1, uses_anonymous_args = 0
- 367 0000 80B5     		push	{r7, lr}
- 368              	.LCFI6:
- 369              		.cfi_def_cfa_offset 8
- 370              		.cfi_offset 7, -8
- 371              		.cfi_offset 14, -4
- 372 0002 8CB0     		sub	sp, sp, #48
- 373              	.LCFI7:
- 374              		.cfi_def_cfa_offset 56
- 375 0004 00AF     		add	r7, sp, #0
- 376              	.LCFI8:
- 377              		.cfi_def_cfa_register 7
- 378 0006 7860     		str	r0, [r7, #4]
- 379              	.LBB6:
- 279:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_tx;
- 280:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_rx;
- 281:Src/stm32f4xx_hal_msp.c ****   
- 282:Src/stm32f4xx_hal_msp.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
- 283:Src/stm32f4xx_hal_msp.c ****   
- 284:Src/stm32f4xx_hal_msp.c ****   /*##-1- Enable peripherals and GPIO Clocks #################################*/
- 285:Src/stm32f4xx_hal_msp.c ****   /* Enable GPIO TX/RX clock */
- 286:Src/stm32f4xx_hal_msp.c ****   USARTx_TX_GPIO_CLK_ENABLE();
- 380              		.loc 1 286 0
- 381 0008 674B     		ldr	r3, .L8
- 382 000a 674A     		ldr	r2, .L8
- 383 000c 126B     		ldr	r2, [r2, #48]
- 384 000e 42F00102 		orr	r2, r2, #1
- 385 0012 1A63     		str	r2, [r3, #48]
- 386 0014 644B     		ldr	r3, .L8
- 387 0016 1B6B     		ldr	r3, [r3, #48]
- 388 0018 03F00103 		and	r3, r3, #1
- 389 001c BB61     		str	r3, [r7, #24]
- 390 001e BB69     		ldr	r3, [r7, #24]
- 391              	.LBE6:
- 392              	.LBB7:
- 287:Src/stm32f4xx_hal_msp.c ****   USARTx_RX_GPIO_CLK_ENABLE();
- 393              		.loc 1 287 0
- 394 0020 614B     		ldr	r3, .L8
- 395 0022 614A     		ldr	r2, .L8
- 396 0024 126B     		ldr	r2, [r2, #48]
- 397 0026 42F00102 		orr	r2, r2, #1
- 398 002a 1A63     		str	r2, [r3, #48]
- 399 002c 5E4B     		ldr	r3, .L8
- 400 002e 1B6B     		ldr	r3, [r3, #48]
- 401 0030 03F00103 		and	r3, r3, #1
- 402 0034 7B61     		str	r3, [r7, #20]
-ARM GAS  /tmp/ccfZkTCN.s 			page 13
+ 269:Src/stm32f4xx_hal_msp.c ****   *           - DMA configuration for transmission request by peripheral 
+ 270:Src/stm32f4xx_hal_msp.c ****   *           - NVIC configuration for DMA interrupt request enable
+ 271:Src/stm32f4xx_hal_msp.c ****   * @param huart: UART handle pointer
+ 272:Src/stm32f4xx_hal_msp.c ****   * @retval None
+ 273:Src/stm32f4xx_hal_msp.c ****   */
+ 274:Src/stm32f4xx_hal_msp.c **** void HAL_UART_MspInit(UART_HandleTypeDef *huart)
+ 275:Src/stm32f4xx_hal_msp.c **** {
+ 365              		.loc 1 275 0
+ 366              		.cfi_startproc
+ 367              		@ args = 0, pretend = 0, frame = 48
+ 368              		@ frame_needed = 1, uses_anonymous_args = 0
+ 369 0000 80B5     		push	{r7, lr}
+ 370              	.LCFI6:
+ 371              		.cfi_def_cfa_offset 8
+ 372              		.cfi_offset 7, -8
+ 373              		.cfi_offset 14, -4
+ 374 0002 8CB0     		sub	sp, sp, #48
+ 375              	.LCFI7:
+ 376              		.cfi_def_cfa_offset 56
+ 377 0004 00AF     		add	r7, sp, #0
+ 378              	.LCFI8:
+ 379              		.cfi_def_cfa_register 7
+ 380 0006 7860     		str	r0, [r7, #4]
+ 381              	.LBB6:
+ 276:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_tx;
+ 277:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_rx;
+ 278:Src/stm32f4xx_hal_msp.c ****   
+ 279:Src/stm32f4xx_hal_msp.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 280:Src/stm32f4xx_hal_msp.c ****   
+ 281:Src/stm32f4xx_hal_msp.c ****   /*##-1- Enable peripherals and GPIO Clocks #################################*/
+ 282:Src/stm32f4xx_hal_msp.c ****   /* Enable GPIO TX/RX clock */
+ 283:Src/stm32f4xx_hal_msp.c ****   USARTx_TX_GPIO_CLK_ENABLE();
+ 382              		.loc 1 283 0
+ 383 0008 674B     		ldr	r3, .L8
+ 384 000a 674A     		ldr	r2, .L8
+ 385 000c 126B     		ldr	r2, [r2, #48]
+ 386 000e 42F00102 		orr	r2, r2, #1
+ 387 0012 1A63     		str	r2, [r3, #48]
+ 388 0014 644B     		ldr	r3, .L8
+ 389 0016 1B6B     		ldr	r3, [r3, #48]
+ 390 0018 03F00103 		and	r3, r3, #1
+ 391 001c BB61     		str	r3, [r7, #24]
+ 392 001e BB69     		ldr	r3, [r7, #24]
+ 393              	.LBE6:
+ 394              	.LBB7:
+ 284:Src/stm32f4xx_hal_msp.c ****   USARTx_RX_GPIO_CLK_ENABLE();
+ 395              		.loc 1 284 0
+ 396 0020 614B     		ldr	r3, .L8
+ 397 0022 614A     		ldr	r2, .L8
+ 398 0024 126B     		ldr	r2, [r2, #48]
+ 399 0026 42F00102 		orr	r2, r2, #1
+ 400 002a 1A63     		str	r2, [r3, #48]
+ 401 002c 5E4B     		ldr	r3, .L8
+ 402 002e 1B6B     		ldr	r3, [r3, #48]
+ 403 0030 03F00103 		and	r3, r3, #1
+ 404 0034 7B61     		str	r3, [r7, #20]
+ 405 0036 7B69     		ldr	r3, [r7, #20]
+ARM GAS  /tmp/cc8oUPe9.s 			page 13
 
 
- 403 0036 7B69     		ldr	r3, [r7, #20]
- 404              	.LBE7:
- 405              	.LBB8:
- 288:Src/stm32f4xx_hal_msp.c ****   /* Enable USART1 clock */
- 289:Src/stm32f4xx_hal_msp.c ****   USARTx_CLK_ENABLE(); 
- 406              		.loc 1 289 0
- 407 0038 5B4B     		ldr	r3, .L8
- 408 003a 5B4A     		ldr	r2, .L8
- 409 003c 526C     		ldr	r2, [r2, #68]
- 410 003e 42F01002 		orr	r2, r2, #16
- 411 0042 5A64     		str	r2, [r3, #68]
- 412 0044 584B     		ldr	r3, .L8
- 413 0046 5B6C     		ldr	r3, [r3, #68]
- 414 0048 03F01003 		and	r3, r3, #16
- 415 004c 3B61     		str	r3, [r7, #16]
- 416 004e 3B69     		ldr	r3, [r7, #16]
- 417              	.LBE8:
- 418              	.LBB9:
- 290:Src/stm32f4xx_hal_msp.c ****   /* Enable DMA1 clock */
- 291:Src/stm32f4xx_hal_msp.c ****   DMAx_CLK_ENABLE();   
- 419              		.loc 1 291 0
- 420 0050 554B     		ldr	r3, .L8
- 421 0052 554A     		ldr	r2, .L8
- 422 0054 126B     		ldr	r2, [r2, #48]
- 423 0056 42F40012 		orr	r2, r2, #2097152
- 424 005a 1A63     		str	r2, [r3, #48]
- 425 005c 524B     		ldr	r3, .L8
- 426 005e 1B6B     		ldr	r3, [r3, #48]
- 427 0060 03F40013 		and	r3, r3, #2097152
- 428 0064 FB60     		str	r3, [r7, #12]
- 429 0066 FB68     		ldr	r3, [r7, #12]
- 430              	.LBE9:
- 292:Src/stm32f4xx_hal_msp.c ****   
- 293:Src/stm32f4xx_hal_msp.c ****   /*##-2- Configure peripheral GPIO ##########################################*/  
- 294:Src/stm32f4xx_hal_msp.c ****   /* UART TX GPIO pin configuration  */
- 295:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pin       = USARTx_TX_PIN;
- 431              		.loc 1 295 0
- 432 0068 4FF40073 		mov	r3, #512
- 433 006c FB61     		str	r3, [r7, #28]
- 296:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
- 434              		.loc 1 296 0
- 435 006e 0223     		movs	r3, #2
- 436 0070 3B62     		str	r3, [r7, #32]
- 297:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pull      = GPIO_NOPULL;
- 437              		.loc 1 297 0
- 438 0072 0023     		movs	r3, #0
- 439 0074 7B62     		str	r3, [r7, #36]
- 298:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Speed     = GPIO_SPEED_FAST;
- 440              		.loc 1 298 0
- 441 0076 0223     		movs	r3, #2
- 442 0078 BB62     		str	r3, [r7, #40]
- 299:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Alternate = USARTx_TX_AF;
- 443              		.loc 1 299 0
- 444 007a 0723     		movs	r3, #7
- 445 007c FB62     		str	r3, [r7, #44]
- 300:Src/stm32f4xx_hal_msp.c ****   
- 301:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_Init(USARTx_TX_GPIO_PORT, &GPIO_InitStruct);
-ARM GAS  /tmp/ccfZkTCN.s 			page 14
+ 406              	.LBE7:
+ 407              	.LBB8:
+ 285:Src/stm32f4xx_hal_msp.c ****   /* Enable USART1 clock */
+ 286:Src/stm32f4xx_hal_msp.c ****   USARTx_CLK_ENABLE(); 
+ 408              		.loc 1 286 0
+ 409 0038 5B4B     		ldr	r3, .L8
+ 410 003a 5B4A     		ldr	r2, .L8
+ 411 003c 526C     		ldr	r2, [r2, #68]
+ 412 003e 42F01002 		orr	r2, r2, #16
+ 413 0042 5A64     		str	r2, [r3, #68]
+ 414 0044 584B     		ldr	r3, .L8
+ 415 0046 5B6C     		ldr	r3, [r3, #68]
+ 416 0048 03F01003 		and	r3, r3, #16
+ 417 004c 3B61     		str	r3, [r7, #16]
+ 418 004e 3B69     		ldr	r3, [r7, #16]
+ 419              	.LBE8:
+ 420              	.LBB9:
+ 287:Src/stm32f4xx_hal_msp.c ****   /* Enable DMA1 clock */
+ 288:Src/stm32f4xx_hal_msp.c ****   DMAx_CLK_ENABLE();   
+ 421              		.loc 1 288 0
+ 422 0050 554B     		ldr	r3, .L8
+ 423 0052 554A     		ldr	r2, .L8
+ 424 0054 126B     		ldr	r2, [r2, #48]
+ 425 0056 42F40012 		orr	r2, r2, #2097152
+ 426 005a 1A63     		str	r2, [r3, #48]
+ 427 005c 524B     		ldr	r3, .L8
+ 428 005e 1B6B     		ldr	r3, [r3, #48]
+ 429 0060 03F40013 		and	r3, r3, #2097152
+ 430 0064 FB60     		str	r3, [r7, #12]
+ 431 0066 FB68     		ldr	r3, [r7, #12]
+ 432              	.LBE9:
+ 289:Src/stm32f4xx_hal_msp.c ****   
+ 290:Src/stm32f4xx_hal_msp.c ****   /*##-2- Configure peripheral GPIO ##########################################*/  
+ 291:Src/stm32f4xx_hal_msp.c ****   /* UART TX GPIO pin configuration  */
+ 292:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pin       = USARTx_TX_PIN;
+ 433              		.loc 1 292 0
+ 434 0068 4FF40073 		mov	r3, #512
+ 435 006c FB61     		str	r3, [r7, #28]
+ 293:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
+ 436              		.loc 1 293 0
+ 437 006e 0223     		movs	r3, #2
+ 438 0070 3B62     		str	r3, [r7, #32]
+ 294:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pull      = GPIO_NOPULL;
+ 439              		.loc 1 294 0
+ 440 0072 0023     		movs	r3, #0
+ 441 0074 7B62     		str	r3, [r7, #36]
+ 295:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Speed     = GPIO_SPEED_FAST;
+ 442              		.loc 1 295 0
+ 443 0076 0223     		movs	r3, #2
+ 444 0078 BB62     		str	r3, [r7, #40]
+ 296:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Alternate = USARTx_TX_AF;
+ 445              		.loc 1 296 0
+ 446 007a 0723     		movs	r3, #7
+ 447 007c FB62     		str	r3, [r7, #44]
+ 297:Src/stm32f4xx_hal_msp.c ****   
+ 298:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_Init(USARTx_TX_GPIO_PORT, &GPIO_InitStruct);
+ 448              		.loc 1 298 0
+ARM GAS  /tmp/cc8oUPe9.s 			page 14
 
 
- 446              		.loc 1 301 0
- 447 007e 07F11C03 		add	r3, r7, #28
- 448 0082 4A48     		ldr	r0, .L8+4
- 449 0084 1946     		mov	r1, r3
- 450 0086 FFF7FEFF 		bl	HAL_GPIO_Init
- 302:Src/stm32f4xx_hal_msp.c ****     
- 303:Src/stm32f4xx_hal_msp.c ****   /* UART RX GPIO pin configuration  */
- 304:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pin = USARTx_RX_PIN;
- 451              		.loc 1 304 0
- 452 008a 4FF48063 		mov	r3, #1024
- 453 008e FB61     		str	r3, [r7, #28]
- 305:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Alternate = USARTx_RX_AF;
- 454              		.loc 1 305 0
- 455 0090 0723     		movs	r3, #7
- 456 0092 FB62     		str	r3, [r7, #44]
- 306:Src/stm32f4xx_hal_msp.c ****     
- 307:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_Init(USARTx_RX_GPIO_PORT, &GPIO_InitStruct);
- 457              		.loc 1 307 0
- 458 0094 07F11C03 		add	r3, r7, #28
- 459 0098 4448     		ldr	r0, .L8+4
- 460 009a 1946     		mov	r1, r3
- 461 009c FFF7FEFF 		bl	HAL_GPIO_Init
- 308:Src/stm32f4xx_hal_msp.c ****     
- 309:Src/stm32f4xx_hal_msp.c ****   /*##-3- Configure the DMA streams ##########################################*/
- 310:Src/stm32f4xx_hal_msp.c ****   /* Configure the DMA handler for Transmission process */
- 311:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Instance                 = USARTx_TX_DMA_STREAM;
- 462              		.loc 1 311 0
- 463 00a0 434B     		ldr	r3, .L8+8
- 464 00a2 444A     		ldr	r2, .L8+12
- 465 00a4 1A60     		str	r2, [r3]
- 312:Src/stm32f4xx_hal_msp.c ****   
- 313:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Channel             = USARTx_TX_DMA_CHANNEL;
- 466              		.loc 1 313 0
- 467 00a6 424B     		ldr	r3, .L8+8
- 468 00a8 4FF00062 		mov	r2, #134217728
- 469 00ac 5A60     		str	r2, [r3, #4]
- 314:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Direction           = DMA_MEMORY_TO_PERIPH;
- 470              		.loc 1 314 0
- 471 00ae 404B     		ldr	r3, .L8+8
- 472 00b0 4022     		movs	r2, #64
- 473 00b2 9A60     		str	r2, [r3, #8]
- 315:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphInc           = DMA_PINC_DISABLE;
- 474              		.loc 1 315 0
- 475 00b4 3E4B     		ldr	r3, .L8+8
- 476 00b6 0022     		movs	r2, #0
- 477 00b8 DA60     		str	r2, [r3, #12]
- 316:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemInc              = DMA_MINC_ENABLE;
- 478              		.loc 1 316 0
- 479 00ba 3D4B     		ldr	r3, .L8+8
- 480 00bc 4FF48062 		mov	r2, #1024
- 481 00c0 1A61     		str	r2, [r3, #16]
- 317:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
- 482              		.loc 1 317 0
- 483 00c2 3B4B     		ldr	r3, .L8+8
- 484 00c4 0022     		movs	r2, #0
- 485 00c6 5A61     		str	r2, [r3, #20]
- 318:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
-ARM GAS  /tmp/ccfZkTCN.s 			page 15
+ 449 007e 07F11C03 		add	r3, r7, #28
+ 450 0082 4A48     		ldr	r0, .L8+4
+ 451 0084 1946     		mov	r1, r3
+ 452 0086 FFF7FEFF 		bl	HAL_GPIO_Init
+ 299:Src/stm32f4xx_hal_msp.c ****     
+ 300:Src/stm32f4xx_hal_msp.c ****   /* UART RX GPIO pin configuration  */
+ 301:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Pin = USARTx_RX_PIN;
+ 453              		.loc 1 301 0
+ 454 008a 4FF48063 		mov	r3, #1024
+ 455 008e FB61     		str	r3, [r7, #28]
+ 302:Src/stm32f4xx_hal_msp.c ****   GPIO_InitStruct.Alternate = USARTx_RX_AF;
+ 456              		.loc 1 302 0
+ 457 0090 0723     		movs	r3, #7
+ 458 0092 FB62     		str	r3, [r7, #44]
+ 303:Src/stm32f4xx_hal_msp.c ****     
+ 304:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_Init(USARTx_RX_GPIO_PORT, &GPIO_InitStruct);
+ 459              		.loc 1 304 0
+ 460 0094 07F11C03 		add	r3, r7, #28
+ 461 0098 4448     		ldr	r0, .L8+4
+ 462 009a 1946     		mov	r1, r3
+ 463 009c FFF7FEFF 		bl	HAL_GPIO_Init
+ 305:Src/stm32f4xx_hal_msp.c ****     
+ 306:Src/stm32f4xx_hal_msp.c ****   /*##-3- Configure the DMA streams ##########################################*/
+ 307:Src/stm32f4xx_hal_msp.c ****   /* Configure the DMA handler for Transmission process */
+ 308:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Instance                 = USARTx_TX_DMA_STREAM;
+ 464              		.loc 1 308 0
+ 465 00a0 434B     		ldr	r3, .L8+8
+ 466 00a2 444A     		ldr	r2, .L8+12
+ 467 00a4 1A60     		str	r2, [r3]
+ 309:Src/stm32f4xx_hal_msp.c ****   
+ 310:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Channel             = USARTx_TX_DMA_CHANNEL;
+ 468              		.loc 1 310 0
+ 469 00a6 424B     		ldr	r3, .L8+8
+ 470 00a8 4FF00062 		mov	r2, #134217728
+ 471 00ac 5A60     		str	r2, [r3, #4]
+ 311:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Direction           = DMA_MEMORY_TO_PERIPH;
+ 472              		.loc 1 311 0
+ 473 00ae 404B     		ldr	r3, .L8+8
+ 474 00b0 4022     		movs	r2, #64
+ 475 00b2 9A60     		str	r2, [r3, #8]
+ 312:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphInc           = DMA_PINC_DISABLE;
+ 476              		.loc 1 312 0
+ 477 00b4 3E4B     		ldr	r3, .L8+8
+ 478 00b6 0022     		movs	r2, #0
+ 479 00b8 DA60     		str	r2, [r3, #12]
+ 313:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemInc              = DMA_MINC_ENABLE;
+ 480              		.loc 1 313 0
+ 481 00ba 3D4B     		ldr	r3, .L8+8
+ 482 00bc 4FF48062 		mov	r2, #1024
+ 483 00c0 1A61     		str	r2, [r3, #16]
+ 314:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 484              		.loc 1 314 0
+ 485 00c2 3B4B     		ldr	r3, .L8+8
+ 486 00c4 0022     		movs	r2, #0
+ 487 00c6 5A61     		str	r2, [r3, #20]
+ 315:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
+ 488              		.loc 1 315 0
+ARM GAS  /tmp/cc8oUPe9.s 			page 15
 
 
- 486              		.loc 1 318 0
- 487 00c8 394B     		ldr	r3, .L8+8
- 488 00ca 0022     		movs	r2, #0
- 489 00cc 9A61     		str	r2, [r3, #24]
- 319:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Mode                = DMA_NORMAL;
- 490              		.loc 1 319 0
- 491 00ce 384B     		ldr	r3, .L8+8
- 492 00d0 0022     		movs	r2, #0
- 493 00d2 DA61     		str	r2, [r3, #28]
- 320:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Priority            = DMA_PRIORITY_LOW;
- 494              		.loc 1 320 0
- 495 00d4 364B     		ldr	r3, .L8+8
- 496 00d6 0022     		movs	r2, #0
- 497 00d8 1A62     		str	r2, [r3, #32]
- 321:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
- 498              		.loc 1 321 0
- 499 00da 354B     		ldr	r3, .L8+8
- 500 00dc 0022     		movs	r2, #0
- 501 00de 5A62     		str	r2, [r3, #36]
- 322:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
- 502              		.loc 1 322 0
- 503 00e0 334B     		ldr	r3, .L8+8
- 504 00e2 0322     		movs	r2, #3
- 505 00e4 9A62     		str	r2, [r3, #40]
- 323:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemBurst            = DMA_MBURST_INC4;
- 506              		.loc 1 323 0
- 507 00e6 324B     		ldr	r3, .L8+8
- 508 00e8 4FF40002 		mov	r2, #8388608
- 509 00ec DA62     		str	r2, [r3, #44]
- 324:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphBurst         = DMA_PBURST_INC4;
- 510              		.loc 1 324 0
- 511 00ee 304B     		ldr	r3, .L8+8
- 512 00f0 4FF40012 		mov	r2, #2097152
- 513 00f4 1A63     		str	r2, [r3, #48]
- 325:Src/stm32f4xx_hal_msp.c ****   
- 326:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_Init(&hdma_tx);   
- 514              		.loc 1 326 0
- 515 00f6 2E48     		ldr	r0, .L8+8
- 516 00f8 FFF7FEFF 		bl	HAL_DMA_Init
- 327:Src/stm32f4xx_hal_msp.c ****   
- 328:Src/stm32f4xx_hal_msp.c ****   /* Associate the initialized DMA handle to the the UART handle */
- 329:Src/stm32f4xx_hal_msp.c ****   __HAL_LINKDMA(huart, hdmatx, hdma_tx);
- 517              		.loc 1 329 0
- 518 00fc 7B68     		ldr	r3, [r7, #4]
- 519 00fe 2C4A     		ldr	r2, .L8+8
- 520 0100 1A63     		str	r2, [r3, #48]
- 521 0102 2B4B     		ldr	r3, .L8+8
- 522 0104 7A68     		ldr	r2, [r7, #4]
- 523 0106 9A63     		str	r2, [r3, #56]
- 330:Src/stm32f4xx_hal_msp.c ****     
- 331:Src/stm32f4xx_hal_msp.c ****   /* Configure the DMA handler for Transmission process */
- 332:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Instance                 = USARTx_RX_DMA_STREAM;
- 524              		.loc 1 332 0
- 525 0108 2B4B     		ldr	r3, .L8+16
- 526 010a 2C4A     		ldr	r2, .L8+20
- 527 010c 1A60     		str	r2, [r3]
- 333:Src/stm32f4xx_hal_msp.c ****   
-ARM GAS  /tmp/ccfZkTCN.s 			page 16
+ 489 00c8 394B     		ldr	r3, .L8+8
+ 490 00ca 0022     		movs	r2, #0
+ 491 00cc 9A61     		str	r2, [r3, #24]
+ 316:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Mode                = DMA_NORMAL;
+ 492              		.loc 1 316 0
+ 493 00ce 384B     		ldr	r3, .L8+8
+ 494 00d0 0022     		movs	r2, #0
+ 495 00d2 DA61     		str	r2, [r3, #28]
+ 317:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.Priority            = DMA_PRIORITY_LOW;
+ 496              		.loc 1 317 0
+ 497 00d4 364B     		ldr	r3, .L8+8
+ 498 00d6 0022     		movs	r2, #0
+ 499 00d8 1A62     		str	r2, [r3, #32]
+ 318:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
+ 500              		.loc 1 318 0
+ 501 00da 354B     		ldr	r3, .L8+8
+ 502 00dc 0022     		movs	r2, #0
+ 503 00de 5A62     		str	r2, [r3, #36]
+ 319:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
+ 504              		.loc 1 319 0
+ 505 00e0 334B     		ldr	r3, .L8+8
+ 506 00e2 0322     		movs	r2, #3
+ 507 00e4 9A62     		str	r2, [r3, #40]
+ 320:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.MemBurst            = DMA_MBURST_INC4;
+ 508              		.loc 1 320 0
+ 509 00e6 324B     		ldr	r3, .L8+8
+ 510 00e8 4FF40002 		mov	r2, #8388608
+ 511 00ec DA62     		str	r2, [r3, #44]
+ 321:Src/stm32f4xx_hal_msp.c ****   hdma_tx.Init.PeriphBurst         = DMA_PBURST_INC4;
+ 512              		.loc 1 321 0
+ 513 00ee 304B     		ldr	r3, .L8+8
+ 514 00f0 4FF40012 		mov	r2, #2097152
+ 515 00f4 1A63     		str	r2, [r3, #48]
+ 322:Src/stm32f4xx_hal_msp.c ****   
+ 323:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_Init(&hdma_tx);   
+ 516              		.loc 1 323 0
+ 517 00f6 2E48     		ldr	r0, .L8+8
+ 518 00f8 FFF7FEFF 		bl	HAL_DMA_Init
+ 324:Src/stm32f4xx_hal_msp.c ****   
+ 325:Src/stm32f4xx_hal_msp.c ****   /* Associate the initialized DMA handle to the the UART handle */
+ 326:Src/stm32f4xx_hal_msp.c ****   __HAL_LINKDMA(huart, hdmatx, hdma_tx);
+ 519              		.loc 1 326 0
+ 520 00fc 7B68     		ldr	r3, [r7, #4]
+ 521 00fe 2C4A     		ldr	r2, .L8+8
+ 522 0100 1A63     		str	r2, [r3, #48]
+ 523 0102 2B4B     		ldr	r3, .L8+8
+ 524 0104 7A68     		ldr	r2, [r7, #4]
+ 525 0106 9A63     		str	r2, [r3, #56]
+ 327:Src/stm32f4xx_hal_msp.c ****     
+ 328:Src/stm32f4xx_hal_msp.c ****   /* Configure the DMA handler for Transmission process */
+ 329:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Instance                 = USARTx_RX_DMA_STREAM;
+ 526              		.loc 1 329 0
+ 527 0108 2B4B     		ldr	r3, .L8+16
+ 528 010a 2C4A     		ldr	r2, .L8+20
+ 529 010c 1A60     		str	r2, [r3]
+ 330:Src/stm32f4xx_hal_msp.c ****   
+ 331:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Channel             = USARTx_RX_DMA_CHANNEL;
+ARM GAS  /tmp/cc8oUPe9.s 			page 16
 
 
- 334:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Channel             = USARTx_RX_DMA_CHANNEL;
- 528              		.loc 1 334 0
- 529 010e 2A4B     		ldr	r3, .L8+16
- 530 0110 4FF00062 		mov	r2, #134217728
- 531 0114 5A60     		str	r2, [r3, #4]
- 335:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Direction           = DMA_PERIPH_TO_MEMORY;
- 532              		.loc 1 335 0
- 533 0116 284B     		ldr	r3, .L8+16
- 534 0118 0022     		movs	r2, #0
- 535 011a 9A60     		str	r2, [r3, #8]
- 336:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphInc           = DMA_PINC_DISABLE;
- 536              		.loc 1 336 0
- 537 011c 264B     		ldr	r3, .L8+16
- 538 011e 0022     		movs	r2, #0
- 539 0120 DA60     		str	r2, [r3, #12]
- 337:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemInc              = DMA_MINC_ENABLE;
- 540              		.loc 1 337 0
- 541 0122 254B     		ldr	r3, .L8+16
- 542 0124 4FF48062 		mov	r2, #1024
- 543 0128 1A61     		str	r2, [r3, #16]
- 338:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
- 544              		.loc 1 338 0
- 545 012a 234B     		ldr	r3, .L8+16
- 546 012c 0022     		movs	r2, #0
- 547 012e 5A61     		str	r2, [r3, #20]
- 339:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
- 548              		.loc 1 339 0
- 549 0130 214B     		ldr	r3, .L8+16
- 550 0132 0022     		movs	r2, #0
- 551 0134 9A61     		str	r2, [r3, #24]
- 340:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Mode                = DMA_NORMAL;
- 552              		.loc 1 340 0
- 553 0136 204B     		ldr	r3, .L8+16
- 554 0138 0022     		movs	r2, #0
- 555 013a DA61     		str	r2, [r3, #28]
- 341:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Priority            = DMA_PRIORITY_HIGH;
- 556              		.loc 1 341 0
- 557 013c 1E4B     		ldr	r3, .L8+16
- 558 013e 4FF40032 		mov	r2, #131072
- 559 0142 1A62     		str	r2, [r3, #32]
- 342:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;         
- 560              		.loc 1 342 0
- 561 0144 1C4B     		ldr	r3, .L8+16
- 562 0146 0022     		movs	r2, #0
- 563 0148 5A62     		str	r2, [r3, #36]
- 343:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
- 564              		.loc 1 343 0
- 565 014a 1B4B     		ldr	r3, .L8+16
- 566 014c 0322     		movs	r2, #3
- 567 014e 9A62     		str	r2, [r3, #40]
- 344:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemBurst            = DMA_MBURST_INC4;
- 568              		.loc 1 344 0
- 569 0150 194B     		ldr	r3, .L8+16
- 570 0152 4FF40002 		mov	r2, #8388608
- 571 0156 DA62     		str	r2, [r3, #44]
- 345:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphBurst         = DMA_PBURST_INC4; 
- 572              		.loc 1 345 0
-ARM GAS  /tmp/ccfZkTCN.s 			page 17
+ 530              		.loc 1 331 0
+ 531 010e 2A4B     		ldr	r3, .L8+16
+ 532 0110 4FF00062 		mov	r2, #134217728
+ 533 0114 5A60     		str	r2, [r3, #4]
+ 332:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Direction           = DMA_PERIPH_TO_MEMORY;
+ 534              		.loc 1 332 0
+ 535 0116 284B     		ldr	r3, .L8+16
+ 536 0118 0022     		movs	r2, #0
+ 537 011a 9A60     		str	r2, [r3, #8]
+ 333:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphInc           = DMA_PINC_DISABLE;
+ 538              		.loc 1 333 0
+ 539 011c 264B     		ldr	r3, .L8+16
+ 540 011e 0022     		movs	r2, #0
+ 541 0120 DA60     		str	r2, [r3, #12]
+ 334:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemInc              = DMA_MINC_ENABLE;
+ 542              		.loc 1 334 0
+ 543 0122 254B     		ldr	r3, .L8+16
+ 544 0124 4FF48062 		mov	r2, #1024
+ 545 0128 1A61     		str	r2, [r3, #16]
+ 335:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+ 546              		.loc 1 335 0
+ 547 012a 234B     		ldr	r3, .L8+16
+ 548 012c 0022     		movs	r2, #0
+ 549 012e 5A61     		str	r2, [r3, #20]
+ 336:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
+ 550              		.loc 1 336 0
+ 551 0130 214B     		ldr	r3, .L8+16
+ 552 0132 0022     		movs	r2, #0
+ 553 0134 9A61     		str	r2, [r3, #24]
+ 337:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Mode                = DMA_NORMAL;
+ 554              		.loc 1 337 0
+ 555 0136 204B     		ldr	r3, .L8+16
+ 556 0138 0022     		movs	r2, #0
+ 557 013a DA61     		str	r2, [r3, #28]
+ 338:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.Priority            = DMA_PRIORITY_HIGH;
+ 558              		.loc 1 338 0
+ 559 013c 1E4B     		ldr	r3, .L8+16
+ 560 013e 4FF40032 		mov	r2, #131072
+ 561 0142 1A62     		str	r2, [r3, #32]
+ 339:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;         
+ 562              		.loc 1 339 0
+ 563 0144 1C4B     		ldr	r3, .L8+16
+ 564 0146 0022     		movs	r2, #0
+ 565 0148 5A62     		str	r2, [r3, #36]
+ 340:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
+ 566              		.loc 1 340 0
+ 567 014a 1B4B     		ldr	r3, .L8+16
+ 568 014c 0322     		movs	r2, #3
+ 569 014e 9A62     		str	r2, [r3, #40]
+ 341:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.MemBurst            = DMA_MBURST_INC4;
+ 570              		.loc 1 341 0
+ 571 0150 194B     		ldr	r3, .L8+16
+ 572 0152 4FF40002 		mov	r2, #8388608
+ 573 0156 DA62     		str	r2, [r3, #44]
+ 342:Src/stm32f4xx_hal_msp.c ****   hdma_rx.Init.PeriphBurst         = DMA_PBURST_INC4; 
+ 574              		.loc 1 342 0
+ 575 0158 174B     		ldr	r3, .L8+16
+ARM GAS  /tmp/cc8oUPe9.s 			page 17
 
 
- 573 0158 174B     		ldr	r3, .L8+16
- 574 015a 4FF40012 		mov	r2, #2097152
- 575 015e 1A63     		str	r2, [r3, #48]
- 346:Src/stm32f4xx_hal_msp.c **** 
- 347:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_Init(&hdma_rx);
- 576              		.loc 1 347 0
- 577 0160 1548     		ldr	r0, .L8+16
- 578 0162 FFF7FEFF 		bl	HAL_DMA_Init
+ 576 015a 4FF40012 		mov	r2, #2097152
+ 577 015e 1A63     		str	r2, [r3, #48]
+ 343:Src/stm32f4xx_hal_msp.c **** 
+ 344:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_Init(&hdma_rx);
+ 578              		.loc 1 344 0
+ 579 0160 1548     		ldr	r0, .L8+16
+ 580 0162 FFF7FEFF 		bl	HAL_DMA_Init
+ 345:Src/stm32f4xx_hal_msp.c ****     
+ 346:Src/stm32f4xx_hal_msp.c ****   /* Associate the initialized DMA handle to the the UART handle */
+ 347:Src/stm32f4xx_hal_msp.c ****   __HAL_LINKDMA(huart, hdmarx, hdma_rx);
+ 581              		.loc 1 347 0
+ 582 0166 7B68     		ldr	r3, [r7, #4]
+ 583 0168 134A     		ldr	r2, .L8+16
+ 584 016a 5A63     		str	r2, [r3, #52]
+ 585 016c 124B     		ldr	r3, .L8+16
+ 586 016e 7A68     		ldr	r2, [r7, #4]
+ 587 0170 9A63     		str	r2, [r3, #56]
  348:Src/stm32f4xx_hal_msp.c ****     
- 349:Src/stm32f4xx_hal_msp.c ****   /* Associate the initialized DMA handle to the the UART handle */
- 350:Src/stm32f4xx_hal_msp.c ****   __HAL_LINKDMA(huart, hdmarx, hdma_rx);
- 579              		.loc 1 350 0
- 580 0166 7B68     		ldr	r3, [r7, #4]
- 581 0168 134A     		ldr	r2, .L8+16
- 582 016a 5A63     		str	r2, [r3, #52]
- 583 016c 124B     		ldr	r3, .L8+16
- 584 016e 7A68     		ldr	r2, [r7, #4]
- 585 0170 9A63     		str	r2, [r3, #56]
- 351:Src/stm32f4xx_hal_msp.c ****     
- 352:Src/stm32f4xx_hal_msp.c ****   /*##-4- Configure the NVIC for DMA #########################################*/
- 353:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for DMA transfer complete interrupt (USARTx_TX) */
- 354:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(USARTx_DMA_TX_IRQn, 0, 1);
- 586              		.loc 1 354 0
- 587 0172 4620     		movs	r0, #70
- 588 0174 0021     		movs	r1, #0
- 589 0176 0122     		movs	r2, #1
- 590 0178 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 355:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(USARTx_DMA_TX_IRQn);
- 591              		.loc 1 355 0
- 592 017c 4620     		movs	r0, #70
- 593 017e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 356:Src/stm32f4xx_hal_msp.c ****     
- 357:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for DMA transfer complete interrupt (USARTx_RX) */
- 358:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(USARTx_DMA_RX_IRQn, 0, 0);   
- 594              		.loc 1 358 0
- 595 0182 4420     		movs	r0, #68
- 596 0184 0021     		movs	r1, #0
- 597 0186 0022     		movs	r2, #0
- 598 0188 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 359:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(USARTx_DMA_RX_IRQn);
- 599              		.loc 1 359 0
- 600 018c 4420     		movs	r0, #68
- 601 018e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 360:Src/stm32f4xx_hal_msp.c ****   
- 361:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for USART TC interrupt */
- 362:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(USARTx_IRQn, 0, 0);
- 602              		.loc 1 362 0
- 603 0192 2520     		movs	r0, #37
- 604 0194 0021     		movs	r1, #0
- 605 0196 0022     		movs	r2, #0
- 606 0198 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 363:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(USARTx_IRQn);
- 607              		.loc 1 363 0
- 608 019c 2520     		movs	r0, #37
- 609 019e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 364:Src/stm32f4xx_hal_msp.c **** }
- 610              		.loc 1 364 0
-ARM GAS  /tmp/ccfZkTCN.s 			page 18
+ 349:Src/stm32f4xx_hal_msp.c ****   /*##-4- Configure the NVIC for DMA #########################################*/
+ 350:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for DMA transfer complete interrupt (USARTx_TX) */
+ 351:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(USARTx_DMA_TX_IRQn, 0, 1);
+ 588              		.loc 1 351 0
+ 589 0172 4620     		movs	r0, #70
+ 590 0174 0021     		movs	r1, #0
+ 591 0176 0122     		movs	r2, #1
+ 592 0178 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 352:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(USARTx_DMA_TX_IRQn);
+ 593              		.loc 1 352 0
+ 594 017c 4620     		movs	r0, #70
+ 595 017e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 353:Src/stm32f4xx_hal_msp.c ****     
+ 354:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for DMA transfer complete interrupt (USARTx_RX) */
+ 355:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(USARTx_DMA_RX_IRQn, 0, 0);   
+ 596              		.loc 1 355 0
+ 597 0182 4420     		movs	r0, #68
+ 598 0184 0021     		movs	r1, #0
+ 599 0186 0022     		movs	r2, #0
+ 600 0188 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 356:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(USARTx_DMA_RX_IRQn);
+ 601              		.loc 1 356 0
+ 602 018c 4420     		movs	r0, #68
+ 603 018e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 357:Src/stm32f4xx_hal_msp.c ****   
+ 358:Src/stm32f4xx_hal_msp.c ****   /* NVIC configuration for USART TC interrupt */
+ 359:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_SetPriority(USARTx_IRQn, 0, 0);
+ 604              		.loc 1 359 0
+ 605 0192 2520     		movs	r0, #37
+ 606 0194 0021     		movs	r1, #0
+ 607 0196 0022     		movs	r2, #0
+ 608 0198 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 360:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_EnableIRQ(USARTx_IRQn);
+ 609              		.loc 1 360 0
+ 610 019c 2520     		movs	r0, #37
+ 611 019e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 361:Src/stm32f4xx_hal_msp.c **** }
+ 612              		.loc 1 361 0
+ 613 01a2 3037     		adds	r7, r7, #48
+ARM GAS  /tmp/cc8oUPe9.s 			page 18
 
 
- 611 01a2 3037     		adds	r7, r7, #48
- 612 01a4 BD46     		mov	sp, r7
- 613              		@ sp needed
- 614 01a6 80BD     		pop	{r7, pc}
- 615              	.L9:
- 616              		.align	2
- 617              	.L8:
- 618 01a8 00380240 		.word	1073887232
- 619 01ac 00000240 		.word	1073872896
- 620 01b0 00000000 		.word	hdma_tx.7374
- 621 01b4 B8640240 		.word	1073898680
- 622 01b8 00000000 		.word	hdma_rx.7375
- 623 01bc 88640240 		.word	1073898632
- 624              		.cfi_endproc
- 625              	.LFE127:
- 627              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
- 628              		.align	2
- 629              		.global	HAL_UART_MspDeInit
- 630              		.thumb
- 631              		.thumb_func
- 633              	HAL_UART_MspDeInit:
- 634              	.LFB128:
- 365:Src/stm32f4xx_hal_msp.c **** 
- 366:Src/stm32f4xx_hal_msp.c **** /**
- 367:Src/stm32f4xx_hal_msp.c ****   * @brief UART MSP De-Initialization 
- 368:Src/stm32f4xx_hal_msp.c ****   *        This function frees the hardware resources used in this example:
- 369:Src/stm32f4xx_hal_msp.c ****   *          - Disable the Peripheral's clock
- 370:Src/stm32f4xx_hal_msp.c ****   *          - Revert GPIO, DMA and NVIC configuration to their default state
- 371:Src/stm32f4xx_hal_msp.c ****   * @param huart: UART handle pointer
- 372:Src/stm32f4xx_hal_msp.c ****   * @retval None
- 373:Src/stm32f4xx_hal_msp.c ****   */
- 374:Src/stm32f4xx_hal_msp.c **** void HAL_UART_MspDeInit(UART_HandleTypeDef *huart)
- 375:Src/stm32f4xx_hal_msp.c **** {
- 635              		.loc 1 375 0
- 636              		.cfi_startproc
- 637              		@ args = 0, pretend = 0, frame = 8
- 638              		@ frame_needed = 1, uses_anonymous_args = 0
- 639 0000 80B5     		push	{r7, lr}
- 640              	.LCFI9:
- 641              		.cfi_def_cfa_offset 8
- 642              		.cfi_offset 7, -8
- 643              		.cfi_offset 14, -4
- 644 0002 82B0     		sub	sp, sp, #8
- 645              	.LCFI10:
- 646              		.cfi_def_cfa_offset 16
- 647 0004 00AF     		add	r7, sp, #0
- 648              	.LCFI11:
- 649              		.cfi_def_cfa_register 7
- 650 0006 7860     		str	r0, [r7, #4]
- 376:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_tx;
- 377:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_rx;
- 378:Src/stm32f4xx_hal_msp.c **** 
- 379:Src/stm32f4xx_hal_msp.c ****   /*##-1- Reset peripherals ##################################################*/
- 380:Src/stm32f4xx_hal_msp.c ****   USARTx_FORCE_RESET();
- 651              		.loc 1 380 0
- 652 0008 124B     		ldr	r3, .L11
- 653 000a 124A     		ldr	r2, .L11
-ARM GAS  /tmp/ccfZkTCN.s 			page 19
+ 614 01a4 BD46     		mov	sp, r7
+ 615              		@ sp needed
+ 616 01a6 80BD     		pop	{r7, pc}
+ 617              	.L9:
+ 618              		.align	2
+ 619              	.L8:
+ 620 01a8 00380240 		.word	1073887232
+ 621 01ac 00000240 		.word	1073872896
+ 622 01b0 00000000 		.word	hdma_tx.7374
+ 623 01b4 B8640240 		.word	1073898680
+ 624 01b8 00000000 		.word	hdma_rx.7375
+ 625 01bc 88640240 		.word	1073898632
+ 626              		.cfi_endproc
+ 627              	.LFE127:
+ 629              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
+ 630              		.align	2
+ 631              		.global	HAL_UART_MspDeInit
+ 632              		.thumb
+ 633              		.thumb_func
+ 635              	HAL_UART_MspDeInit:
+ 636              	.LFB128:
+ 362:Src/stm32f4xx_hal_msp.c **** 
+ 363:Src/stm32f4xx_hal_msp.c **** /**
+ 364:Src/stm32f4xx_hal_msp.c ****   * @brief UART MSP De-Initialization 
+ 365:Src/stm32f4xx_hal_msp.c ****   *        This function frees the hardware resources used in this example:
+ 366:Src/stm32f4xx_hal_msp.c ****   *          - Disable the Peripheral's clock
+ 367:Src/stm32f4xx_hal_msp.c ****   *          - Revert GPIO, DMA and NVIC configuration to their default state
+ 368:Src/stm32f4xx_hal_msp.c ****   * @param huart: UART handle pointer
+ 369:Src/stm32f4xx_hal_msp.c ****   * @retval None
+ 370:Src/stm32f4xx_hal_msp.c ****   */
+ 371:Src/stm32f4xx_hal_msp.c **** void HAL_UART_MspDeInit(UART_HandleTypeDef *huart)
+ 372:Src/stm32f4xx_hal_msp.c **** {
+ 637              		.loc 1 372 0
+ 638              		.cfi_startproc
+ 639              		@ args = 0, pretend = 0, frame = 8
+ 640              		@ frame_needed = 1, uses_anonymous_args = 0
+ 641 0000 80B5     		push	{r7, lr}
+ 642              	.LCFI9:
+ 643              		.cfi_def_cfa_offset 8
+ 644              		.cfi_offset 7, -8
+ 645              		.cfi_offset 14, -4
+ 646 0002 82B0     		sub	sp, sp, #8
+ 647              	.LCFI10:
+ 648              		.cfi_def_cfa_offset 16
+ 649 0004 00AF     		add	r7, sp, #0
+ 650              	.LCFI11:
+ 651              		.cfi_def_cfa_register 7
+ 652 0006 7860     		str	r0, [r7, #4]
+ 373:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_tx;
+ 374:Src/stm32f4xx_hal_msp.c ****   static DMA_HandleTypeDef hdma_rx;
+ 375:Src/stm32f4xx_hal_msp.c **** 
+ 376:Src/stm32f4xx_hal_msp.c ****   /*##-1- Reset peripherals ##################################################*/
+ 377:Src/stm32f4xx_hal_msp.c ****   USARTx_FORCE_RESET();
+ 653              		.loc 1 377 0
+ 654 0008 124B     		ldr	r3, .L11
+ 655 000a 124A     		ldr	r2, .L11
+ 656 000c 526A     		ldr	r2, [r2, #36]
+ARM GAS  /tmp/cc8oUPe9.s 			page 19
 
 
- 654 000c 526A     		ldr	r2, [r2, #36]
- 655 000e 42F01002 		orr	r2, r2, #16
- 656 0012 5A62     		str	r2, [r3, #36]
- 381:Src/stm32f4xx_hal_msp.c ****   USARTx_RELEASE_RESET();
- 657              		.loc 1 381 0
- 658 0014 0F4B     		ldr	r3, .L11
- 659 0016 0F4A     		ldr	r2, .L11
- 660 0018 526A     		ldr	r2, [r2, #36]
- 661 001a 22F01002 		bic	r2, r2, #16
- 662 001e 5A62     		str	r2, [r3, #36]
- 382:Src/stm32f4xx_hal_msp.c **** 
- 383:Src/stm32f4xx_hal_msp.c ****   /*##-2- Disable peripherals and GPIO Clocks ################################*/
- 384:Src/stm32f4xx_hal_msp.c ****   /* Configure UART Tx as alternate function */
- 385:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_DeInit(USARTx_TX_GPIO_PORT, USARTx_TX_PIN);
- 663              		.loc 1 385 0
- 664 0020 0D48     		ldr	r0, .L11+4
- 665 0022 4FF40071 		mov	r1, #512
- 666 0026 FFF7FEFF 		bl	HAL_GPIO_DeInit
- 386:Src/stm32f4xx_hal_msp.c ****   /* Configure UART Rx as alternate function */
- 387:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_DeInit(USARTx_RX_GPIO_PORT, USARTx_RX_PIN);
- 667              		.loc 1 387 0
- 668 002a 0B48     		ldr	r0, .L11+4
- 669 002c 4FF48061 		mov	r1, #1024
- 670 0030 FFF7FEFF 		bl	HAL_GPIO_DeInit
- 388:Src/stm32f4xx_hal_msp.c ****    
- 389:Src/stm32f4xx_hal_msp.c ****   /*##-3- Disable the DMA Streams ############################################*/
- 390:Src/stm32f4xx_hal_msp.c ****   /* De-Initialize the DMA Stream associate to transmission process */
- 391:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_DeInit(&hdma_tx); 
- 671              		.loc 1 391 0
- 672 0034 0948     		ldr	r0, .L11+8
- 673 0036 FFF7FEFF 		bl	HAL_DMA_DeInit
- 392:Src/stm32f4xx_hal_msp.c ****   /* De-Initialize the DMA Stream associate to reception process */
- 393:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_DeInit(&hdma_rx);
- 674              		.loc 1 393 0
- 675 003a 0948     		ldr	r0, .L11+12
- 676 003c FFF7FEFF 		bl	HAL_DMA_DeInit
- 394:Src/stm32f4xx_hal_msp.c ****   
- 395:Src/stm32f4xx_hal_msp.c ****   /*##-4- Disable the NVIC for DMA ###########################################*/
- 396:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_DisableIRQ(USARTx_DMA_TX_IRQn);
- 677              		.loc 1 396 0
- 678 0040 4620     		movs	r0, #70
- 679 0042 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
- 397:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_DisableIRQ(USARTx_DMA_RX_IRQn);
- 680              		.loc 1 397 0
- 681 0046 4420     		movs	r0, #68
- 682 0048 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
- 398:Src/stm32f4xx_hal_msp.c **** }
- 683              		.loc 1 398 0
- 684 004c 0837     		adds	r7, r7, #8
- 685 004e BD46     		mov	sp, r7
- 686              		@ sp needed
- 687 0050 80BD     		pop	{r7, pc}
- 688              	.L12:
- 689 0052 00BF     		.align	2
- 690              	.L11:
- 691 0054 00380240 		.word	1073887232
- 692 0058 00000240 		.word	1073872896
-ARM GAS  /tmp/ccfZkTCN.s 			page 20
+ 657 000e 42F01002 		orr	r2, r2, #16
+ 658 0012 5A62     		str	r2, [r3, #36]
+ 378:Src/stm32f4xx_hal_msp.c ****   USARTx_RELEASE_RESET();
+ 659              		.loc 1 378 0
+ 660 0014 0F4B     		ldr	r3, .L11
+ 661 0016 0F4A     		ldr	r2, .L11
+ 662 0018 526A     		ldr	r2, [r2, #36]
+ 663 001a 22F01002 		bic	r2, r2, #16
+ 664 001e 5A62     		str	r2, [r3, #36]
+ 379:Src/stm32f4xx_hal_msp.c **** 
+ 380:Src/stm32f4xx_hal_msp.c ****   /*##-2- Disable peripherals and GPIO Clocks ################################*/
+ 381:Src/stm32f4xx_hal_msp.c ****   /* Configure UART Tx as alternate function */
+ 382:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_DeInit(USARTx_TX_GPIO_PORT, USARTx_TX_PIN);
+ 665              		.loc 1 382 0
+ 666 0020 0D48     		ldr	r0, .L11+4
+ 667 0022 4FF40071 		mov	r1, #512
+ 668 0026 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 383:Src/stm32f4xx_hal_msp.c ****   /* Configure UART Rx as alternate function */
+ 384:Src/stm32f4xx_hal_msp.c ****   HAL_GPIO_DeInit(USARTx_RX_GPIO_PORT, USARTx_RX_PIN);
+ 669              		.loc 1 384 0
+ 670 002a 0B48     		ldr	r0, .L11+4
+ 671 002c 4FF48061 		mov	r1, #1024
+ 672 0030 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 385:Src/stm32f4xx_hal_msp.c ****    
+ 386:Src/stm32f4xx_hal_msp.c ****   /*##-3- Disable the DMA Streams ############################################*/
+ 387:Src/stm32f4xx_hal_msp.c ****   /* De-Initialize the DMA Stream associate to transmission process */
+ 388:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_DeInit(&hdma_tx); 
+ 673              		.loc 1 388 0
+ 674 0034 0948     		ldr	r0, .L11+8
+ 675 0036 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 389:Src/stm32f4xx_hal_msp.c ****   /* De-Initialize the DMA Stream associate to reception process */
+ 390:Src/stm32f4xx_hal_msp.c ****   HAL_DMA_DeInit(&hdma_rx);
+ 676              		.loc 1 390 0
+ 677 003a 0948     		ldr	r0, .L11+12
+ 678 003c FFF7FEFF 		bl	HAL_DMA_DeInit
+ 391:Src/stm32f4xx_hal_msp.c ****   
+ 392:Src/stm32f4xx_hal_msp.c ****   /*##-4- Disable the NVIC for DMA ###########################################*/
+ 393:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_DisableIRQ(USARTx_DMA_TX_IRQn);
+ 679              		.loc 1 393 0
+ 680 0040 4620     		movs	r0, #70
+ 681 0042 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 394:Src/stm32f4xx_hal_msp.c ****   HAL_NVIC_DisableIRQ(USARTx_DMA_RX_IRQn);
+ 682              		.loc 1 394 0
+ 683 0046 4420     		movs	r0, #68
+ 684 0048 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 395:Src/stm32f4xx_hal_msp.c **** }
+ 685              		.loc 1 395 0
+ 686 004c 0837     		adds	r7, r7, #8
+ 687 004e BD46     		mov	sp, r7
+ 688              		@ sp needed
+ 689 0050 80BD     		pop	{r7, pc}
+ 690              	.L12:
+ 691 0052 00BF     		.align	2
+ 692              	.L11:
+ 693 0054 00380240 		.word	1073887232
+ 694 0058 00000240 		.word	1073872896
+ 695 005c 00000000 		.word	hdma_tx.7384
+ARM GAS  /tmp/cc8oUPe9.s 			page 20
 
 
- 693 005c 00000000 		.word	hdma_tx.7384
- 694 0060 00000000 		.word	hdma_rx.7385
- 695              		.cfi_endproc
- 696              	.LFE128:
- 698              		.section	.bss.hdma_tx.7359,"aw",%nobits
- 699              		.align	2
- 702              	hdma_tx.7359:
- 703 0000 00000000 		.space	88
- 703      00000000 
- 703      00000000 
- 703      00000000 
- 703      00000000 
- 704              		.section	.bss.hdma_rx.7360,"aw",%nobits
- 705              		.align	2
- 708              	hdma_rx.7360:
- 709 0000 00000000 		.space	88
- 709      00000000 
- 709      00000000 
- 709      00000000 
- 709      00000000 
- 710              		.section	.bss.hdma_tx.7369,"aw",%nobits
- 711              		.align	2
- 714              	hdma_tx.7369:
- 715 0000 00000000 		.space	88
- 715      00000000 
- 715      00000000 
- 715      00000000 
- 715      00000000 
- 716              		.section	.bss.hdma_rx.7370,"aw",%nobits
- 717              		.align	2
- 720              	hdma_rx.7370:
- 721 0000 00000000 		.space	88
- 721      00000000 
- 721      00000000 
- 721      00000000 
- 721      00000000 
- 722              		.section	.bss.hdma_tx.7374,"aw",%nobits
- 723              		.align	2
- 726              	hdma_tx.7374:
- 727 0000 00000000 		.space	88
- 727      00000000 
- 727      00000000 
- 727      00000000 
- 727      00000000 
- 728              		.section	.bss.hdma_rx.7375,"aw",%nobits
- 729              		.align	2
- 732              	hdma_rx.7375:
- 733 0000 00000000 		.space	88
- 733      00000000 
- 733      00000000 
- 733      00000000 
- 733      00000000 
- 734              		.section	.bss.hdma_tx.7384,"aw",%nobits
- 735              		.align	2
- 738              	hdma_tx.7384:
- 739 0000 00000000 		.space	88
- 739      00000000 
-ARM GAS  /tmp/ccfZkTCN.s 			page 21
+ 696 0060 00000000 		.word	hdma_rx.7385
+ 697              		.cfi_endproc
+ 698              	.LFE128:
+ 700              		.section	.bss.hdma_tx.7359,"aw",%nobits
+ 701              		.align	2
+ 704              	hdma_tx.7359:
+ 705 0000 00000000 		.space	88
+ 705      00000000 
+ 705      00000000 
+ 705      00000000 
+ 705      00000000 
+ 706              		.section	.bss.hdma_rx.7360,"aw",%nobits
+ 707              		.align	2
+ 710              	hdma_rx.7360:
+ 711 0000 00000000 		.space	88
+ 711      00000000 
+ 711      00000000 
+ 711      00000000 
+ 711      00000000 
+ 712              		.section	.bss.hdma_tx.7369,"aw",%nobits
+ 713              		.align	2
+ 716              	hdma_tx.7369:
+ 717 0000 00000000 		.space	88
+ 717      00000000 
+ 717      00000000 
+ 717      00000000 
+ 717      00000000 
+ 718              		.section	.bss.hdma_rx.7370,"aw",%nobits
+ 719              		.align	2
+ 722              	hdma_rx.7370:
+ 723 0000 00000000 		.space	88
+ 723      00000000 
+ 723      00000000 
+ 723      00000000 
+ 723      00000000 
+ 724              		.section	.bss.hdma_tx.7374,"aw",%nobits
+ 725              		.align	2
+ 728              	hdma_tx.7374:
+ 729 0000 00000000 		.space	88
+ 729      00000000 
+ 729      00000000 
+ 729      00000000 
+ 729      00000000 
+ 730              		.section	.bss.hdma_rx.7375,"aw",%nobits
+ 731              		.align	2
+ 734              	hdma_rx.7375:
+ 735 0000 00000000 		.space	88
+ 735      00000000 
+ 735      00000000 
+ 735      00000000 
+ 735      00000000 
+ 736              		.section	.bss.hdma_tx.7384,"aw",%nobits
+ 737              		.align	2
+ 740              	hdma_tx.7384:
+ 741 0000 00000000 		.space	88
+ 741      00000000 
+ 741      00000000 
+ARM GAS  /tmp/cc8oUPe9.s 			page 21
 
 
- 739      00000000 
- 739      00000000 
- 739      00000000 
- 740              		.section	.bss.hdma_rx.7385,"aw",%nobits
- 741              		.align	2
- 744              	hdma_rx.7385:
- 745 0000 00000000 		.space	88
- 745      00000000 
- 745      00000000 
- 745      00000000 
- 745      00000000 
- 746              		.text
- 747              	.Letext0:
- 748              		.file 2 "/usr/include/newlib/machine/_default_types.h"
- 749              		.file 3 "/usr/include/newlib/stdint.h"
- 750              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"
- 751              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 752              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 753              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 754              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 755              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 756              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
-ARM GAS  /tmp/ccfZkTCN.s 			page 22
+ 741      00000000 
+ 741      00000000 
+ 742              		.section	.bss.hdma_rx.7385,"aw",%nobits
+ 743              		.align	2
+ 746              	hdma_rx.7385:
+ 747 0000 00000000 		.space	88
+ 747      00000000 
+ 747      00000000 
+ 747      00000000 
+ 747      00000000 
+ 748              		.text
+ 749              	.Letext0:
+ 750              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 751              		.file 3 "/usr/include/newlib/stdint.h"
+ 752              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"
+ 753              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 754              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 755              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 756              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 757              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 758              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
+ARM GAS  /tmp/cc8oUPe9.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_msp.c
-     /tmp/ccfZkTCN.s:20     .text.HAL_I2C_MspInit:0000000000000000 $t
-     /tmp/ccfZkTCN.s:25     .text.HAL_I2C_MspInit:0000000000000000 HAL_I2C_MspInit
-     /tmp/ccfZkTCN.s:275    .text.HAL_I2C_MspInit:0000000000000198 $d
-     /tmp/ccfZkTCN.s:702    .bss.hdma_tx.7359:0000000000000000 hdma_tx.7359
-     /tmp/ccfZkTCN.s:708    .bss.hdma_rx.7360:0000000000000000 hdma_rx.7360
-     /tmp/ccfZkTCN.s:285    .text.HAL_I2C_MspDeInit:0000000000000000 $t
-     /tmp/ccfZkTCN.s:290    .text.HAL_I2C_MspDeInit:0000000000000000 HAL_I2C_MspDeInit
-     /tmp/ccfZkTCN.s:348    .text.HAL_I2C_MspDeInit:0000000000000050 $d
-     /tmp/ccfZkTCN.s:714    .bss.hdma_tx.7369:0000000000000000 hdma_tx.7369
-     /tmp/ccfZkTCN.s:720    .bss.hdma_rx.7370:0000000000000000 hdma_rx.7370
-     /tmp/ccfZkTCN.s:356    .text.HAL_UART_MspInit:0000000000000000 $t
-     /tmp/ccfZkTCN.s:361    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-     /tmp/ccfZkTCN.s:618    .text.HAL_UART_MspInit:00000000000001a8 $d
-     /tmp/ccfZkTCN.s:726    .bss.hdma_tx.7374:0000000000000000 hdma_tx.7374
-     /tmp/ccfZkTCN.s:732    .bss.hdma_rx.7375:0000000000000000 hdma_rx.7375
-     /tmp/ccfZkTCN.s:628    .text.HAL_UART_MspDeInit:0000000000000000 $t
-     /tmp/ccfZkTCN.s:633    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
-     /tmp/ccfZkTCN.s:691    .text.HAL_UART_MspDeInit:0000000000000054 $d
-     /tmp/ccfZkTCN.s:738    .bss.hdma_tx.7384:0000000000000000 hdma_tx.7384
-     /tmp/ccfZkTCN.s:744    .bss.hdma_rx.7385:0000000000000000 hdma_rx.7385
-     /tmp/ccfZkTCN.s:699    .bss.hdma_tx.7359:0000000000000000 $d
-     /tmp/ccfZkTCN.s:705    .bss.hdma_rx.7360:0000000000000000 $d
-     /tmp/ccfZkTCN.s:711    .bss.hdma_tx.7369:0000000000000000 $d
-     /tmp/ccfZkTCN.s:717    .bss.hdma_rx.7370:0000000000000000 $d
-     /tmp/ccfZkTCN.s:723    .bss.hdma_tx.7374:0000000000000000 $d
-     /tmp/ccfZkTCN.s:729    .bss.hdma_rx.7375:0000000000000000 $d
-     /tmp/ccfZkTCN.s:735    .bss.hdma_tx.7384:0000000000000000 $d
-     /tmp/ccfZkTCN.s:741    .bss.hdma_rx.7385:0000000000000000 $d
+     /tmp/cc8oUPe9.s:20     .text.HAL_I2C_MspInit:0000000000000000 $t
+     /tmp/cc8oUPe9.s:25     .text.HAL_I2C_MspInit:0000000000000000 HAL_I2C_MspInit
+     /tmp/cc8oUPe9.s:275    .text.HAL_I2C_MspInit:0000000000000198 $d
+     /tmp/cc8oUPe9.s:704    .bss.hdma_tx.7359:0000000000000000 hdma_tx.7359
+     /tmp/cc8oUPe9.s:710    .bss.hdma_rx.7360:0000000000000000 hdma_rx.7360
+     /tmp/cc8oUPe9.s:286    .text.HAL_I2C_MspDeInit:0000000000000000 $t
+     /tmp/cc8oUPe9.s:291    .text.HAL_I2C_MspDeInit:0000000000000000 HAL_I2C_MspDeInit
+     /tmp/cc8oUPe9.s:349    .text.HAL_I2C_MspDeInit:0000000000000054 $d
+     /tmp/cc8oUPe9.s:716    .bss.hdma_tx.7369:0000000000000000 hdma_tx.7369
+     /tmp/cc8oUPe9.s:722    .bss.hdma_rx.7370:0000000000000000 hdma_rx.7370
+     /tmp/cc8oUPe9.s:358    .text.HAL_UART_MspInit:0000000000000000 $t
+     /tmp/cc8oUPe9.s:363    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+     /tmp/cc8oUPe9.s:620    .text.HAL_UART_MspInit:00000000000001a8 $d
+     /tmp/cc8oUPe9.s:728    .bss.hdma_tx.7374:0000000000000000 hdma_tx.7374
+     /tmp/cc8oUPe9.s:734    .bss.hdma_rx.7375:0000000000000000 hdma_rx.7375
+     /tmp/cc8oUPe9.s:630    .text.HAL_UART_MspDeInit:0000000000000000 $t
+     /tmp/cc8oUPe9.s:635    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+     /tmp/cc8oUPe9.s:693    .text.HAL_UART_MspDeInit:0000000000000054 $d
+     /tmp/cc8oUPe9.s:740    .bss.hdma_tx.7384:0000000000000000 hdma_tx.7384
+     /tmp/cc8oUPe9.s:746    .bss.hdma_rx.7385:0000000000000000 hdma_rx.7385
+     /tmp/cc8oUPe9.s:701    .bss.hdma_tx.7359:0000000000000000 $d
+     /tmp/cc8oUPe9.s:707    .bss.hdma_rx.7360:0000000000000000 $d
+     /tmp/cc8oUPe9.s:713    .bss.hdma_tx.7369:0000000000000000 $d
+     /tmp/cc8oUPe9.s:719    .bss.hdma_rx.7370:0000000000000000 $d
+     /tmp/cc8oUPe9.s:725    .bss.hdma_tx.7374:0000000000000000 $d
+     /tmp/cc8oUPe9.s:731    .bss.hdma_rx.7375:0000000000000000 $d
+     /tmp/cc8oUPe9.s:737    .bss.hdma_tx.7384:0000000000000000 $d
+     /tmp/cc8oUPe9.s:743    .bss.hdma_rx.7385:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc66wbA5.s 			page 1
+ARM GAS  /tmp/cca4f1hw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
   25:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *
   26:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
   27:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *
-ARM GAS  /tmp/cc66wbA5.s 			page 2
+ARM GAS  /tmp/cca4f1hw.s 			page 2
 
 
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * Redistribution and use in source and binary forms, with or without modification,
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
   82:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** #define IDCODE_DEVID_MASK    ((uint32_t)0x00000FFF)
   83:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
   84:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /* ------------ RCC registers bit address in the alias region ----------- */
-ARM GAS  /tmp/cc66wbA5.s 			page 3
+ARM GAS  /tmp/cca4f1hw.s 			page 3
 
 
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** #define SYSCFG_OFFSET             (SYSCFG_BASE - PERIPH_BASE)
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  139:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****         (++) Source of time base is configured  to generate interrupts at regular 
  140:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****              time intervals. Care must be taken if HAL_Delay() is called from a 
  141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****              peripheral ISR process, the Tick interrupt line must have higher priority 
-ARM GAS  /tmp/cc66wbA5.s 			page 4
+ARM GAS  /tmp/cca4f1hw.s 			page 4
 
 
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****             (numerically lower) than the peripheral interrupt. Otherwise the caller 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
   54 0012 0B4A     		ldr	r2, .L3
   55 0014 1268     		ldr	r2, [r2]
   56 0016 42F48062 		orr	r2, r2, #1024
-ARM GAS  /tmp/cc66wbA5.s 			page 5
+ARM GAS  /tmp/cca4f1hw.s 			page 5
 
 
   57 001a 1A60     		str	r2, [r3]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  197:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *         This function is optional.   
  198:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval HAL status
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  /tmp/cc66wbA5.s 			page 6
+ARM GAS  /tmp/cca4f1hw.s 			page 6
 
 
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** HAL_StatusTypeDef HAL_DeInit(void)
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  132              		.loc 1 213 0
  133 0036 074B     		ldr	r3, .L7
  134 0038 0022     		movs	r2, #0
-ARM GAS  /tmp/cc66wbA5.s 			page 7
+ARM GAS  /tmp/cca4f1hw.s 			page 7
 
 
  135 003a 5A61     		str	r2, [r3, #20]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  174              		.cfi_offset 7, -4
  175 0002 00AF     		add	r7, sp, #0
  176              	.LCFI5:
-ARM GAS  /tmp/cc66wbA5.s 			page 8
+ARM GAS  /tmp/cca4f1hw.s 			page 8
 
 
  177              		.cfi_def_cfa_register 7
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  220              	HAL_InitTick:
  221              	.LFB129:
  246:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
-ARM GAS  /tmp/cc66wbA5.s 			page 9
+ARM GAS  /tmp/cca4f1hw.s 			page 9
 
 
  247:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  272:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   return HAL_OK;
  251              		.loc 1 272 0
  252 0028 0023     		movs	r3, #0
-ARM GAS  /tmp/cc66wbA5.s 			page 10
+ARM GAS  /tmp/cca4f1hw.s 			page 10
 
 
  273:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  308:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *      implementations in user file.
  309:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval None
  310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  /tmp/cc66wbA5.s 			page 11
+ARM GAS  /tmp/cca4f1hw.s 			page 11
 
 
  311:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** __weak void HAL_IncTick(void)
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  317 0000 80B4     		push	{r7}
  318              	.LCFI13:
  319              		.cfi_def_cfa_offset 4
-ARM GAS  /tmp/cc66wbA5.s 			page 12
+ARM GAS  /tmp/cca4f1hw.s 			page 12
 
 
  320              		.cfi_offset 7, -4
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  360 0004 00AF     		add	r7, sp, #0
  361              	.LCFI17:
  362              		.cfi_def_cfa_register 7
-ARM GAS  /tmp/cc66wbA5.s 			page 13
+ARM GAS  /tmp/cca4f1hw.s 			page 13
 
 
  363 0006 7860     		str	r0, [r7, #4]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  400              		@ frame_needed = 1, uses_anonymous_args = 0
  401              		@ link register save eliminated.
  402 0000 80B4     		push	{r7}
-ARM GAS  /tmp/cc66wbA5.s 			page 14
+ARM GAS  /tmp/cca4f1hw.s 			page 14
 
 
  403              	.LCFI18:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  443              		.cfi_offset 7, -4
  444 0002 00AF     		add	r7, sp, #0
  445              	.LCFI21:
-ARM GAS  /tmp/cc66wbA5.s 			page 15
+ARM GAS  /tmp/cca4f1hw.s 			page 15
 
 
  446              		.cfi_def_cfa_register 7
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  490              		@ sp needed
  491 000a 5DF8047B 		ldr	r7, [sp], #4
  492 000e 7047     		bx	lr
-ARM GAS  /tmp/cc66wbA5.s 			page 16
+ARM GAS  /tmp/cca4f1hw.s 			page 16
 
 
  493              	.L33:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  541              		.thumb_func
  543              	HAL_GetDEVID:
  544              	.LFB137:
-ARM GAS  /tmp/cc66wbA5.s 			page 17
+ARM GAS  /tmp/cca4f1hw.s 			page 17
 
 
  396:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  585              		@ frame_needed = 1, uses_anonymous_args = 0
  586              		@ link register save eliminated.
  587 0000 80B4     		push	{r7}
-ARM GAS  /tmp/cc66wbA5.s 			page 18
+ARM GAS  /tmp/cca4f1hw.s 			page 18
 
 
  588              	.LCFI28:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  634 0006 044A     		ldr	r2, .L46
  635 0008 5268     		ldr	r2, [r2, #4]
  636 000a 22F00102 		bic	r2, r2, #1
-ARM GAS  /tmp/cc66wbA5.s 			page 19
+ARM GAS  /tmp/cca4f1hw.s 			page 19
 
 
  637 000e 5A60     		str	r2, [r3, #4]
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  683              	.L49:
  684 0018 002004E0 		.word	-536600576
  685              		.cfi_endproc
-ARM GAS  /tmp/cc66wbA5.s 			page 20
+ARM GAS  /tmp/cca4f1hw.s 			page 20
 
 
  686              	.LFE140:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  442:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  443:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Enable the Debug Module during STANDBY mode
  444:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval None
-ARM GAS  /tmp/cc66wbA5.s 			page 21
+ARM GAS  /tmp/cca4f1hw.s 			page 21
 
 
  445:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  778              	.LCFI38:
  779              		.cfi_def_cfa_offset 4
  780              		.cfi_offset 7, -4
-ARM GAS  /tmp/cc66wbA5.s 			page 22
+ARM GAS  /tmp/cca4f1hw.s 			page 22
 
 
  781 0002 00AF     		add	r7, sp, #0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  826 0008 7B60     		str	r3, [r7, #4]
  827              	.LBB10:
  828              	.LBB11:
-ARM GAS  /tmp/cc66wbA5.s 			page 23
+ARM GAS  /tmp/cca4f1hw.s 			page 23
 
 
  829              		.file 2 "Drivers/CMSIS/Include/core_cmInstr.h"
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
   54:Drivers/CMSIS/Include/core_cmInstr.h **** 
   55:Drivers/CMSIS/Include/core_cmInstr.h **** 
   56:Drivers/CMSIS/Include/core_cmInstr.h **** /** \brief  No Operation
-ARM GAS  /tmp/cc66wbA5.s 			page 24
+ARM GAS  /tmp/cca4f1hw.s 			page 24
 
 
   57:Drivers/CMSIS/Include/core_cmInstr.h **** 
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  111:Drivers/CMSIS/Include/core_cmInstr.h ****     This function ensures the apparent order of the explicit memory operations before
  112:Drivers/CMSIS/Include/core_cmInstr.h ****     and after the instruction, without ensuring their completion.
  113:Drivers/CMSIS/Include/core_cmInstr.h ****  */
-ARM GAS  /tmp/cc66wbA5.s 			page 25
+ARM GAS  /tmp/cca4f1hw.s 			page 25
 
 
  114:Drivers/CMSIS/Include/core_cmInstr.h **** #define __DMB() do {\
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  168:Drivers/CMSIS/Include/core_cmInstr.h ****  */
  169:Drivers/CMSIS/Include/core_cmInstr.h **** #define __ROR                             __ror
  170:Drivers/CMSIS/Include/core_cmInstr.h **** 
-ARM GAS  /tmp/cc66wbA5.s 			page 26
+ARM GAS  /tmp/cca4f1hw.s 			page 26
 
 
  171:Drivers/CMSIS/Include/core_cmInstr.h **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  225:Drivers/CMSIS/Include/core_cmInstr.h ****     This function executes a exclusive LDR instruction for 8 bit value.
  226:Drivers/CMSIS/Include/core_cmInstr.h **** 
  227:Drivers/CMSIS/Include/core_cmInstr.h ****     \param [in]    ptr  Pointer to data
-ARM GAS  /tmp/cc66wbA5.s 			page 27
+ARM GAS  /tmp/cca4f1hw.s 			page 27
 
 
  228:Drivers/CMSIS/Include/core_cmInstr.h ****     \return             value of type uint8_t at (*ptr)
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  282:Drivers/CMSIS/Include/core_cmInstr.h ****     \param [in]    ptr  Pointer to location
  283:Drivers/CMSIS/Include/core_cmInstr.h ****     \return          0  Function succeeded
  284:Drivers/CMSIS/Include/core_cmInstr.h ****     \return          1  Function failed
-ARM GAS  /tmp/cc66wbA5.s 			page 28
+ARM GAS  /tmp/cca4f1hw.s 			page 28
 
 
  285:Drivers/CMSIS/Include/core_cmInstr.h ****  */
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  339:Drivers/CMSIS/Include/core_cmInstr.h **** 
  340:Drivers/CMSIS/Include/core_cmInstr.h ****     \param [in]    ptr  Pointer to data
  341:Drivers/CMSIS/Include/core_cmInstr.h ****     \return             value of type uint8_t at (*ptr)
-ARM GAS  /tmp/cc66wbA5.s 			page 29
+ARM GAS  /tmp/cca4f1hw.s 			page 29
 
 
  342:Drivers/CMSIS/Include/core_cmInstr.h ****  */
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  396:Drivers/CMSIS/Include/core_cmInstr.h **** 
  397:Drivers/CMSIS/Include/core_cmInstr.h **** 
  398:Drivers/CMSIS/Include/core_cmInstr.h **** #elif defined ( __GNUC__ ) /*------------------ GNU Compiler ---------------------*/
-ARM GAS  /tmp/cc66wbA5.s 			page 30
+ARM GAS  /tmp/cca4f1hw.s 			page 30
 
 
  399:Drivers/CMSIS/Include/core_cmInstr.h **** /* GNU gcc specific functions */
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  453:Drivers/CMSIS/Include/core_cmInstr.h **** 
  454:Drivers/CMSIS/Include/core_cmInstr.h **** /** \brief  Instruction Synchronization Barrier
  455:Drivers/CMSIS/Include/core_cmInstr.h **** 
-ARM GAS  /tmp/cc66wbA5.s 			page 31
+ARM GAS  /tmp/cca4f1hw.s 			page 31
 
 
  456:Drivers/CMSIS/Include/core_cmInstr.h ****     Instruction Synchronization Barrier flushes the pipeline in the processor,
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  510:Drivers/CMSIS/Include/core_cmInstr.h ****     This function reverses the byte order in two unsigned short values.
  511:Drivers/CMSIS/Include/core_cmInstr.h **** 
  512:Drivers/CMSIS/Include/core_cmInstr.h ****     \param [in]    value  Value to reverse
-ARM GAS  /tmp/cc66wbA5.s 			page 32
+ARM GAS  /tmp/cca4f1hw.s 			page 32
 
 
  513:Drivers/CMSIS/Include/core_cmInstr.h ****     \return               Reversed value
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  567:Drivers/CMSIS/Include/core_cmInstr.h **** 
  568:Drivers/CMSIS/Include/core_cmInstr.h **** 
  569:Drivers/CMSIS/Include/core_cmInstr.h **** /** \brief  Reverse bit order of value
-ARM GAS  /tmp/cc66wbA5.s 			page 33
+ARM GAS  /tmp/cca4f1hw.s 			page 33
 
 
  570:Drivers/CMSIS/Include/core_cmInstr.h **** 
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  857              	.L62:
  858 0030 00042742 		.word	1109853184
  859              		.cfi_endproc
-ARM GAS  /tmp/cc66wbA5.s 			page 34
+ARM GAS  /tmp/cca4f1hw.s 			page 34
 
 
  860              	.LFE144:
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  905 001e 1344     		add	r3, r3, r2
  906 0020 0022     		movs	r2, #0
  907 0022 1A60     		str	r2, [r3]
-ARM GAS  /tmp/cc66wbA5.s 			page 35
+ARM GAS  /tmp/cca4f1hw.s 			page 35
 
 
  480:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  581:Drivers/CMSIS/Include/core_cmInstr.h **** #else
  948              		.loc 2 581 0
  949 000c 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cc66wbA5.s 			page 36
+ARM GAS  /tmp/cca4f1hw.s 			page 36
 
 
  950              	@ 581 "Drivers/CMSIS/Include/core_cmInstr.h" 1
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  991              		.cfi_offset 7, -4
  992 0002 83B0     		sub	sp, sp, #12
  993              	.LCFI50:
-ARM GAS  /tmp/cc66wbA5.s 			page 37
+ARM GAS  /tmp/cca4f1hw.s 			page 37
 
 
  994              		.cfi_def_cfa_offset 16
@@ -2207,80 +2207,80 @@ ARM GAS  /tmp/cc66wbA5.s 			page 1
  1034              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"
  1035              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
  1036              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
-ARM GAS  /tmp/cc66wbA5.s 			page 38
+ARM GAS  /tmp/cca4f1hw.s 			page 38
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal.c
-     /tmp/cc66wbA5.s:20     .bss.uwTick:0000000000000000 $d
-     /tmp/cc66wbA5.s:23     .bss.uwTick:0000000000000000 uwTick
-     /tmp/cc66wbA5.s:26     .text.HAL_Init:0000000000000000 $t
-     /tmp/cc66wbA5.s:31     .text.HAL_Init:0000000000000000 HAL_Init
-     /tmp/cc66wbA5.s:220    .text.HAL_InitTick:0000000000000000 HAL_InitTick
-     /tmp/cc66wbA5.s:164    .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/cc66wbA5.s:80     .text.HAL_Init:0000000000000040 $d
-     /tmp/cc66wbA5.s:85     .text.HAL_DeInit:0000000000000000 $t
-     /tmp/cc66wbA5.s:90     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-     /tmp/cc66wbA5.s:192    .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-     /tmp/cc66wbA5.s:154    .text.HAL_DeInit:0000000000000054 $d
-     /tmp/cc66wbA5.s:159    .text.HAL_MspInit:0000000000000000 $t
-     /tmp/cc66wbA5.s:187    .text.HAL_MspDeInit:0000000000000000 $t
-     /tmp/cc66wbA5.s:215    .text.HAL_InitTick:0000000000000000 $t
-     /tmp/cc66wbA5.s:262    .text.HAL_InitTick:0000000000000034 $d
-     /tmp/cc66wbA5.s:267    .text.HAL_IncTick:0000000000000000 $t
-     /tmp/cc66wbA5.s:272    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-     /tmp/cc66wbA5.s:300    .text.HAL_IncTick:0000000000000018 $d
-     /tmp/cc66wbA5.s:305    .text.HAL_GetTick:0000000000000000 $t
-     /tmp/cc66wbA5.s:310    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-     /tmp/cc66wbA5.s:336    .text.HAL_GetTick:0000000000000014 $d
-     /tmp/cc66wbA5.s:341    .text.HAL_Delay:0000000000000000 $t
-     /tmp/cc66wbA5.s:346    .text.HAL_Delay:0000000000000000 HAL_Delay
-     /tmp/cc66wbA5.s:390    .text.HAL_SuspendTick:0000000000000000 $t
-     /tmp/cc66wbA5.s:395    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-     /tmp/cc66wbA5.s:423    .text.HAL_SuspendTick:0000000000000018 $d
-     /tmp/cc66wbA5.s:428    .text.HAL_ResumeTick:0000000000000000 $t
-     /tmp/cc66wbA5.s:433    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-     /tmp/cc66wbA5.s:461    .text.HAL_ResumeTick:0000000000000018 $d
-     /tmp/cc66wbA5.s:466    .text.HAL_GetHalVersion:0000000000000000 $t
-     /tmp/cc66wbA5.s:471    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-     /tmp/cc66wbA5.s:496    .text.HAL_GetHalVersion:0000000000000010 $d
-     /tmp/cc66wbA5.s:501    .text.HAL_GetREVID:0000000000000000 $t
-     /tmp/cc66wbA5.s:506    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-     /tmp/cc66wbA5.s:533    .text.HAL_GetREVID:0000000000000014 $d
-     /tmp/cc66wbA5.s:538    .text.HAL_GetDEVID:0000000000000000 $t
-     /tmp/cc66wbA5.s:543    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-     /tmp/cc66wbA5.s:570    .text.HAL_GetDEVID:0000000000000018 $d
-     /tmp/cc66wbA5.s:575    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-     /tmp/cc66wbA5.s:580    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-     /tmp/cc66wbA5.s:608    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000018 $d
-     /tmp/cc66wbA5.s:613    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-     /tmp/cc66wbA5.s:618    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-     /tmp/cc66wbA5.s:646    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000018 $d
-     /tmp/cc66wbA5.s:651    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-     /tmp/cc66wbA5.s:656    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-     /tmp/cc66wbA5.s:684    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000018 $d
-     /tmp/cc66wbA5.s:689    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-     /tmp/cc66wbA5.s:694    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-     /tmp/cc66wbA5.s:722    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000018 $d
-     /tmp/cc66wbA5.s:727    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-     /tmp/cc66wbA5.s:732    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-     /tmp/cc66wbA5.s:760    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000018 $d
-     /tmp/cc66wbA5.s:765    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-     /tmp/cc66wbA5.s:770    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-ARM GAS  /tmp/cc66wbA5.s 			page 39
+     /tmp/cca4f1hw.s:20     .bss.uwTick:0000000000000000 $d
+     /tmp/cca4f1hw.s:23     .bss.uwTick:0000000000000000 uwTick
+     /tmp/cca4f1hw.s:26     .text.HAL_Init:0000000000000000 $t
+     /tmp/cca4f1hw.s:31     .text.HAL_Init:0000000000000000 HAL_Init
+     /tmp/cca4f1hw.s:220    .text.HAL_InitTick:0000000000000000 HAL_InitTick
+     /tmp/cca4f1hw.s:164    .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/cca4f1hw.s:80     .text.HAL_Init:0000000000000040 $d
+     /tmp/cca4f1hw.s:85     .text.HAL_DeInit:0000000000000000 $t
+     /tmp/cca4f1hw.s:90     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+     /tmp/cca4f1hw.s:192    .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+     /tmp/cca4f1hw.s:154    .text.HAL_DeInit:0000000000000054 $d
+     /tmp/cca4f1hw.s:159    .text.HAL_MspInit:0000000000000000 $t
+     /tmp/cca4f1hw.s:187    .text.HAL_MspDeInit:0000000000000000 $t
+     /tmp/cca4f1hw.s:215    .text.HAL_InitTick:0000000000000000 $t
+     /tmp/cca4f1hw.s:262    .text.HAL_InitTick:0000000000000034 $d
+     /tmp/cca4f1hw.s:267    .text.HAL_IncTick:0000000000000000 $t
+     /tmp/cca4f1hw.s:272    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+     /tmp/cca4f1hw.s:300    .text.HAL_IncTick:0000000000000018 $d
+     /tmp/cca4f1hw.s:305    .text.HAL_GetTick:0000000000000000 $t
+     /tmp/cca4f1hw.s:310    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+     /tmp/cca4f1hw.s:336    .text.HAL_GetTick:0000000000000014 $d
+     /tmp/cca4f1hw.s:341    .text.HAL_Delay:0000000000000000 $t
+     /tmp/cca4f1hw.s:346    .text.HAL_Delay:0000000000000000 HAL_Delay
+     /tmp/cca4f1hw.s:390    .text.HAL_SuspendTick:0000000000000000 $t
+     /tmp/cca4f1hw.s:395    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+     /tmp/cca4f1hw.s:423    .text.HAL_SuspendTick:0000000000000018 $d
+     /tmp/cca4f1hw.s:428    .text.HAL_ResumeTick:0000000000000000 $t
+     /tmp/cca4f1hw.s:433    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+     /tmp/cca4f1hw.s:461    .text.HAL_ResumeTick:0000000000000018 $d
+     /tmp/cca4f1hw.s:466    .text.HAL_GetHalVersion:0000000000000000 $t
+     /tmp/cca4f1hw.s:471    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+     /tmp/cca4f1hw.s:496    .text.HAL_GetHalVersion:0000000000000010 $d
+     /tmp/cca4f1hw.s:501    .text.HAL_GetREVID:0000000000000000 $t
+     /tmp/cca4f1hw.s:506    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+     /tmp/cca4f1hw.s:533    .text.HAL_GetREVID:0000000000000014 $d
+     /tmp/cca4f1hw.s:538    .text.HAL_GetDEVID:0000000000000000 $t
+     /tmp/cca4f1hw.s:543    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+     /tmp/cca4f1hw.s:570    .text.HAL_GetDEVID:0000000000000018 $d
+     /tmp/cca4f1hw.s:575    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+     /tmp/cca4f1hw.s:580    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+     /tmp/cca4f1hw.s:608    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000018 $d
+     /tmp/cca4f1hw.s:613    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+     /tmp/cca4f1hw.s:618    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+     /tmp/cca4f1hw.s:646    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000018 $d
+     /tmp/cca4f1hw.s:651    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+     /tmp/cca4f1hw.s:656    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+     /tmp/cca4f1hw.s:684    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000018 $d
+     /tmp/cca4f1hw.s:689    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+     /tmp/cca4f1hw.s:694    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+     /tmp/cca4f1hw.s:722    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000018 $d
+     /tmp/cca4f1hw.s:727    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+     /tmp/cca4f1hw.s:732    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+     /tmp/cca4f1hw.s:760    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000018 $d
+     /tmp/cca4f1hw.s:765    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+     /tmp/cca4f1hw.s:770    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+ARM GAS  /tmp/cca4f1hw.s 			page 39
 
 
-     /tmp/cc66wbA5.s:798    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000018 $d
-     /tmp/cc66wbA5.s:803    .text.HAL_EnableCompensationCell:0000000000000000 $t
-     /tmp/cc66wbA5.s:808    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
-     /tmp/cc66wbA5.s:858    .text.HAL_EnableCompensationCell:0000000000000030 $d
-     /tmp/cc66wbA5.s:863    .text.HAL_DisableCompensationCell:0000000000000000 $t
-     /tmp/cc66wbA5.s:868    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
-     /tmp/cc66wbA5.s:917    .text.HAL_DisableCompensationCell:0000000000000030 $d
-     /tmp/cc66wbA5.s:922    .text.HAL_EnableMemorySwappingBank:0000000000000000 $t
-     /tmp/cc66wbA5.s:927    .text.HAL_EnableMemorySwappingBank:0000000000000000 HAL_EnableMemorySwappingBank
-     /tmp/cc66wbA5.s:976    .text.HAL_DisableMemorySwappingBank:0000000000000000 $t
-     /tmp/cc66wbA5.s:981    .text.HAL_DisableMemorySwappingBank:0000000000000000 HAL_DisableMemorySwappingBank
+     /tmp/cca4f1hw.s:798    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000018 $d
+     /tmp/cca4f1hw.s:803    .text.HAL_EnableCompensationCell:0000000000000000 $t
+     /tmp/cca4f1hw.s:808    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
+     /tmp/cca4f1hw.s:858    .text.HAL_EnableCompensationCell:0000000000000030 $d
+     /tmp/cca4f1hw.s:863    .text.HAL_DisableCompensationCell:0000000000000000 $t
+     /tmp/cca4f1hw.s:868    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
+     /tmp/cca4f1hw.s:917    .text.HAL_DisableCompensationCell:0000000000000030 $d
+     /tmp/cca4f1hw.s:922    .text.HAL_EnableMemorySwappingBank:0000000000000000 $t
+     /tmp/cca4f1hw.s:927    .text.HAL_EnableMemorySwappingBank:0000000000000000 HAL_EnableMemorySwappingBank
+     /tmp/cca4f1hw.s:976    .text.HAL_DisableMemorySwappingBank:0000000000000000 $t
+     /tmp/cca4f1hw.s:981    .text.HAL_DisableMemorySwappingBank:0000000000000000 HAL_DisableMemorySwappingBank
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

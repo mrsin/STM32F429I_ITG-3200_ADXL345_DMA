@@ -52,8 +52,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
-/* Uncomment this line to use the board as master, if not it is used as slave */
-#define I2C_ADDRESS        0x30F
+#define I2C_ADDRESS        0x1D
 
 /* Private variables ---------------------------------------------------------*/
 /* I2C handler declaration */
@@ -64,14 +63,29 @@ UART_HandleTypeDef UartHandle;
 __IO ITStatus UartReady = RESET;
 
 /* Buffer used for transmission */
-uint8_t aTxBuffer[255];
+uint8_t aTxBuffer[] = {0, 0, 0, 0};
 
 /* Buffer used for reception */
 uint8_t aRxBuffer[RXBUFFERSIZE];
 
+enum i2c_state {NONE, ACCEL_WRITE, ACCEL_READ, GYRO_WRITE, GYRO_READ};
+
+enum i2c_state i2c = NONE;
+
+uint8_t POWER_CTL = 0x2D;  //Power Control Register
+uint8_t DATA_FORMAT = 0x31;
+uint8_t DATAX0 = 0x32; //X-Axis Data 0
+uint8_t DATAX1 = 0x33; //X-Axis Data 1
+uint8_t DATAY0 = 0x34; //Y-Axis Data 0
+uint8_t DATAY1 = 0x35; //Y-Axis Data 1
+uint8_t DATAZ0 = 0x36; //Z-Axis Data 0
+uint8_t DATAZ1 = 0x37; //Z-Axis Data 1
+
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
+static void readFrom(uint8_t address, uint8_t num);
+static void writeTo(uint8_t address, uint8_t val);
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -100,14 +114,14 @@ int main(void)
   /*##-1- Configure the I2C peripheral #######################################*/
   I2cHandle.Instance             = I2Cx;
 
-  I2cHandle.Init.AddressingMode  = I2C_ADDRESSINGMODE_10BIT;
+  I2cHandle.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;
   I2cHandle.Init.ClockSpeed      = 400000;
   I2cHandle.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  I2cHandle.Init.DutyCycle       = I2C_DUTYCYCLE_16_9;
+  I2cHandle.Init.DutyCycle       = I2C_DUTYCYCLE_2;
   I2cHandle.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   I2cHandle.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;
-  I2cHandle.Init.OwnAddress1     = I2C_ADDRESS;
-  I2cHandle.Init.OwnAddress2     = 0xFE;
+  I2cHandle.Init.OwnAddress1     = 0x10;
+  I2cHandle.Init.OwnAddress2     = 0x11;
   
   if(HAL_I2C_Init(&I2cHandle) != HAL_OK)
   {
@@ -115,61 +129,143 @@ int main(void)
     Error_Handler();
   }
 
-  aTxBuffer[0] = 'A';
+  //LCD_Init();
+  //LCD_DisplayOn();
+  //LCD_DisplayStringAtLine(1, "123");
+
+/*  uint8_t i = 0;
+  for(i = 0; i<255; i++)
+  {
+    if(HAL_I2C_IsDeviceReady(&I2cHandle, I2C_ADDRESS << 1, 1, 100) == HAL_OK) {
+  	  printf("Ready: 0x%02x\n", i);
+    }
+    else {
+      printf("Not ready: 0x%02x\n", i);
+    }
+  }*/
+
+  // +/- 2G range -  00;
+  // +/- 4G range -  01;
+  // +/- 8G range -  02;
+  // +/- 16G range - 03;
+  writeTo(DATA_FORMAT, 0x00);
+  //Put the ADXL345 into Measurement Mode by writing 0x08 to the POWER_CTL register.
+  writeTo(POWER_CTL, 0x08);
+
 
   /* Infinite loop */
+  uint32_t TimeStart = HAL_GetTick();
+  uint32_t LoopCounter = 0;
   while (1)
   {
-	  /* The board sends the message and expects to receive it back */
+	//HAL_Delay(1);
 
-	  /*##-2- Start the transmission process #####################################*/
-	  /* While the I2C in reception process, user can transmit data through
-	     "aTxBuffer" buffer */
-	  while(HAL_I2C_Master_Transmit_DMA(&I2cHandle, (uint16_t)I2C_ADDRESS, (uint8_t*)aTxBuffer, 1)!= HAL_OK)
-	  {
-	    /* Error_Handler() function is called when Timeout error occurs.
-	       When Acknowledge failure occurs (Slave don't acknowledge it's address)
-	       Master restarts communication */
-	    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
-	    {
-	      Error_Handler();
-	    }
-	  }
+	//read the acceleration data from the ADXL345
+	readFrom( DATAX0, 6);
 
-	  /*##-3- Wait for the end of the transfer ###################################*/
-	  /*  Before starting a new communication transfer, you need to check the current
-	      state of the peripheral; if it�s busy you need to wait for the end of current
-	      transfer before starting a new one.
-	      For simplicity reasons, this example is just waiting till the end of the
-	      transfer, but application may perform other tasks while transfer operation
-	      is ongoing. */
-	  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
-	  {
-	  }
+	// each axis reading comes in 10 bit resolution, ie 2 bytes.  Least Significat Byte first!!
+	// thus we are converting both bytes in to one int
+	uint16_t x = (((uint16_t)aRxBuffer[1]) << 8) | aRxBuffer[0];
+	uint16_t y = (((uint16_t)aRxBuffer[3]) << 8) | aRxBuffer[2];
+	uint16_t z = (((uint16_t)aRxBuffer[5]) << 8) | aRxBuffer[4];
 
-	  /*##-4- Put I2C peripheral in reception process ############################*/
-	  while(HAL_I2C_Master_Receive_DMA(&I2cHandle, (uint16_t)I2C_ADDRESS, (uint8_t *)aRxBuffer, 1) != HAL_OK)
-	  {
-	    /* Error_Handler() function is called when Timeout error occurs.
-	       When Acknowledge failure occurs (Slave don't acknowledge it's address)
-	       Master restarts communication */
-	    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
-	    {
-	      Error_Handler();
-	    }
-	  }
+	if (HAL_GetTick() - TimeStart > 1000) {
+	  printf("x: %d", x);
+	  printf(" y: %d", y);
+	  printf(" z: %d", z);
+	  printf(" loop per second: %d\n", LoopCounter);
+	  LoopCounter = 0;
+	  TimeStart = HAL_GetTick();
+	}
 
-	  /*##-5- Wait for the end of the transfer ###################################*/
-	  /*  Before starting a new communication transfer, you need to check the current
-	      state of the peripheral; if it�s busy you need to wait for the end of current
-	      transfer before starting a new one.
-	      For simplicity reasons, this example is just waiting till the end of the
-	      transfer, but application may perform other tasks while transfer operation
-	      is ongoing. */
-	  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
-	  {
-	  }
+	LoopCounter++;
+  }
+}
 
+static void writeTo(uint8_t address, uint8_t val) {
+  // register address
+  aTxBuffer[0] = address;
+  // register value
+  aTxBuffer[1] = val;
+
+  /*##-2- Start the transmission process #####################################*/
+  /* While the I2C in reception process, user can transmit data through
+     "aTxBuffer" buffer */
+  while(HAL_I2C_Master_Transmit_DMA(&I2cHandle, I2C_ADDRESS << 1, (uint8_t*)aTxBuffer, 2)!= HAL_OK)
+  {
+    /* Error_Handler() function is called when Timeout error occurs.
+       When Acknowledge failure occurs (Slave don't acknowledge it's address)
+       Master restarts communication */
+    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
+    {
+      Error_Handler();
+    }
+  }
+
+  /*##-3- Wait for the end of the transfer ###################################*/
+  /*  Before starting a new communication transfer, you need to check the current
+      state of the peripheral; if it�s busy you need to wait for the end of current
+      transfer before starting a new one.
+      For simplicity reasons, this example is just waiting till the end of the
+      transfer, but application may perform other tasks while transfer operation
+      is ongoing. */
+  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
+  {
+  }
+}
+
+static void readFrom(uint8_t address, uint8_t num) {
+  // address to read from
+  aTxBuffer[0] = address;
+
+  /*##-2- Start the transmission process #####################################*/
+  /* While the I2C in reception process, user can transmit data through
+     "aTxBuffer" buffer */
+  while(HAL_I2C_Master_Transmit_DMA(&I2cHandle, I2C_ADDRESS << 1, (uint8_t*)aTxBuffer, 1)!= HAL_OK)
+  {
+    /* Error_Handler() function is called when Timeout error occurs.
+       When Acknowledge failure occurs (Slave don't acknowledge it's address)
+       Master restarts communication */
+    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
+    {
+      Error_Handler();
+    }
+  }
+
+  /*##-3- Wait for the end of the transfer ###################################*/
+  /*  Before starting a new communication transfer, you need to check the current
+      state of the peripheral; if it�s busy you need to wait for the end of current
+      transfer before starting a new one.
+      For simplicity reasons, this example is just waiting till the end of the
+      transfer, but application may perform other tasks while transfer operation
+      is ongoing. */
+  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
+  {
+  }
+
+  // request 6 bytes from device
+
+  /*##-4- Put I2C peripheral in reception process ############################*/
+  while(HAL_I2C_Master_Receive_DMA(&I2cHandle, I2C_ADDRESS << 1, (uint8_t *)aRxBuffer, 6) != HAL_OK)
+  {
+    /* Error_Handler() function is called when Timeout error occurs.
+       When Acknowledge failure occurs (Slave don't acknowledge it's address)
+       Master restarts communication */
+    if (HAL_I2C_GetError(&I2cHandle) != HAL_I2C_ERROR_AF)
+    {
+      Error_Handler();
+    }
+  }
+
+  /*##-5- Wait for the end of the transfer ###################################*/
+  /*  Before starting a new communication transfer, you need to check the current
+      state of the peripheral; if it�s busy you need to wait for the end of current
+      transfer before starting a new one.
+      For simplicity reasons, this example is just waiting till the end of the
+      transfer, but application may perform other tasks while transfer operation
+      is ongoing. */
+  while (HAL_I2C_GetState(&I2cHandle) != HAL_I2C_STATE_READY)
+  {
   }
 }
 
@@ -251,19 +347,12 @@ static void SystemClock_Config(void)
   *         you can add your own implementation. 
   * @retval None
   */
-#ifdef MASTER_BOARD
+
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *I2cHandle)
 {
   /* Toggle LED3: Transfer in transmission process is correct */
   BSP_LED_Toggle(LED3);
 }
-#else
-void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *I2cHandle)
-{
-  /* Toggle LED3: Transfer in transmission process is correct */
-  BSP_LED_Toggle(LED3);
-}
-#endif /* MASTER_BOARD */
 
 /**
   * @brief  Rx Transfer completed callback.
@@ -272,19 +361,12 @@ void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *I2cHandle)
   *         you can add your own implementation.
   * @retval None
   */
-#ifdef MASTER_BOARD
+
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *I2cHandle)
 {
   /* Toggle LED3: Transfer in reception process is correct */
   BSP_LED_Toggle(LED3);
 }
-#else
-void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *I2cHandle)
-{
-  /* Toggle LED3: Transfer in reception process is correct */
-  BSP_LED_Toggle(LED3);
-}
-#endif /* MASTER_BOARD */
 
 /**
   * @brief  I2C error callbacks.

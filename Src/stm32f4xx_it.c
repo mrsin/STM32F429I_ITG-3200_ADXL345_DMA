@@ -55,6 +55,8 @@
 /* Private variables ---------------------------------------------------------*/
 /* UART handler declared in "main.c" file */
 extern UART_HandleTypeDef UartHandle;
+/* I2C handler declared in "main.c" file */
+extern I2C_HandleTypeDef I2cHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
@@ -196,6 +198,30 @@ void USARTx_DMA_TX_IRQHandler(void)
 void USARTx_IRQHandler(void)
 {
   HAL_UART_IRQHandler(&UartHandle);
+}
+
+/**
+  * @brief  This function handles DMA interrupt request.
+  * @param  None
+  * @retval None
+  * @Note   This function is redefined in "main.h" and related to DMA stream
+  *         used for I2C data transmission
+  */
+void I2Cx_DMA_RX_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(I2cHandle.hdmarx);
+}
+
+/**
+  * @brief  This function handles DMA interrupt request.
+  * @param  None
+  * @retval None
+  * @Note   This function is redefined in "main.h" and related to DMA stream
+  *         used for I2C data reception
+  */
+void I2Cx_DMA_TX_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(I2cHandle.hdmatx);
 }
 
 /**

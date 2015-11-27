@@ -42,6 +42,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 #include "stm32f429i_discovery.h"
+//#include "stm32f429i_discovery_lcd.h"
+//#include "stm32f429i_discovery_sdram.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
@@ -82,34 +84,39 @@
 /* User can use this section to tailor I2Cx/I2Cx instance used and associated
    resources */
 /* Definition for I2Cx clock resources */
-#define I2Cx                             I2C1
-#define I2Cx_CLK_ENABLE()                __HAL_RCC_I2C1_CLK_ENABLE()
+#define I2Cx                             I2C3
+#define I2Cx_CLK_ENABLE()                __HAL_RCC_I2C3_CLK_ENABLE()
 #define DMAx_CLK_ENABLE()                __HAL_RCC_DMA1_CLK_ENABLE()
-#define I2Cx_SDA_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOB_CLK_ENABLE()
-#define I2Cx_SCL_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOB_CLK_ENABLE()
+#define I2Cx_SDA_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOC_CLK_ENABLE()
+#define I2Cx_SCL_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOA_CLK_ENABLE()
 
-#define I2Cx_FORCE_RESET()               __HAL_RCC_I2C1_FORCE_RESET()
-#define I2Cx_RELEASE_RESET()             __HAL_RCC_I2C1_RELEASE_RESET()
+#define I2Cx_FORCE_RESET()               __HAL_RCC_I2C3_FORCE_RESET()
+#define I2Cx_RELEASE_RESET()             __HAL_RCC_I2C3_RELEASE_RESET()
+
+ /**I2C3 GPIO Configuration
+    PC9     ------> I2C3_SDA
+    PA8     ------> I2C3_SCL
+    */
 
 /* Definition for I2Cx Pins */
-#define I2Cx_SCL_PIN                    GPIO_PIN_6
-#define I2Cx_SCL_GPIO_PORT              GPIOB
-#define I2Cx_SCL_AF                     GPIO_AF4_I2C1
+#define I2Cx_SCL_PIN                    GPIO_PIN_8
+#define I2Cx_SCL_GPIO_PORT              GPIOA
+#define I2Cx_SCL_AF                     GPIO_AF4_I2C3
 #define I2Cx_SDA_PIN                    GPIO_PIN_9
-#define I2Cx_SDA_GPIO_PORT              GPIOB
-#define I2Cx_SDA_AF                     GPIO_AF4_I2C1
+#define I2Cx_SDA_GPIO_PORT              GPIOC
+#define I2Cx_SDA_AF                     GPIO_AF4_I2C3
 
 /* Definition for I2Cx's DMA */
 #define I2Cx_TX_DMA_CHANNEL             DMA_CHANNEL_1
-#define I2Cx_TX_DMA_STREAM              DMA1_Stream6
+#define I2Cx_TX_DMA_STREAM              DMA1_Stream4
 #define I2Cx_RX_DMA_CHANNEL             DMA_CHANNEL_1
-#define I2Cx_RX_DMA_STREAM              DMA1_Stream5
+#define I2Cx_RX_DMA_STREAM              DMA1_Stream2
 
 /* Definition for I2Cx's NVIC */
-#define I2Cx_DMA_TX_IRQn                DMA1_Stream6_IRQn
-#define I2Cx_DMA_RX_IRQn                DMA1_Stream5_IRQn
-#define I2Cx_DMA_TX_IRQHandler          DMA1_Stream6_IRQHandler
-#define I2Cx_DMA_RX_IRQHandler          DMA1_Stream5_IRQHandler
+#define I2Cx_DMA_TX_IRQn                DMA1_Stream4_IRQn
+#define I2Cx_DMA_RX_IRQn                DMA1_Stream2_IRQn
+#define I2Cx_DMA_TX_IRQHandler          DMA1_Stream4_IRQHandler
+#define I2Cx_DMA_RX_IRQHandler          DMA1_Stream2_IRQHandler
 
 /* Size of Transmission buffer */
 #define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1)
