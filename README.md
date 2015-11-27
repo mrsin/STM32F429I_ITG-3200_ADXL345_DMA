@@ -1,4 +1,4 @@
 # STM32F429I_ITG-3200_ADXL345_DMA
 
-Пример работы с UART DMA на STM32F429I Discovery.
+Пример работы с ADXL345 по I2C DMA на STM32F429I Discovery.
 
